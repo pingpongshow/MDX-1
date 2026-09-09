@@ -1,0 +1,431 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "0afcd34a-d204-4875-aae8-4ddd790eda23")
+	(paper "A3")
+	(title_block
+		(title "MDX-1 multi-frequency / PI metal detector")
+		(date "2026-09-05")
+		(rev "A4")
+		(company "Open hardware design (generated)")
+		(comment 1 "Simultaneous 5-frequency VLF-IB + bipolar PI, 24-bit RX")
+	)
+	(lib_symbols)
+	(text "MDX-1  Simultaneous multi-frequency + pulse-induction metal detector"
+		(exclude_from_sim no)
+		(at 20.32 25.4 0)
+		(effects
+			(font
+				(size 3.5 3.5)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "94dd2bff-f082-4fa9-9297-05aa9dbbedc0")
+	)
+	(text "Generated from tools/mdx1_design.py - edit the generator, not the .kicad_sch files.  Capacitors drawn at a pin belong to that pin."
+		(exclude_from_sim no)
+		(at 20.32 36.83 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left bottom)
+		)
+		(uuid "d94cc2b5-ecfa-4bee-88c6-e37c62f9d966")
+	)
+	(text "Sheets: 1 Power  2 TX driver  3 RX front end  4 ADC  5 MCU  6 Audio/RF + UI link  7 UI board (separate PCB)  8 Coil.  All inter-sheet signals are global labels."
+		(exclude_from_sim no)
+		(at 20.32 31.75 0)
+		(effects
+			(font
+				(size 1.8 1.8)
+			)
+			(justify left bottom)
+		)
+		(uuid "e5175b82-0ca6-496e-b422-e1ab0694f14e")
+	)
+	(sheet
+		(at 200 120)
+		(size 60 25)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "0a3fe2e4-1113-4bb7-ad3c-92221dd1b416")
+		(property "Sheetname" "UI board (separate PCB): memory LCD, 6-key pad + pinpoint + power, LEDs, front-light"
+			(at 200 119.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.5 1.5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ui_board.kicad_sch"
+			(at 200 145.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 110 120)
+		(size 60 25)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "0f3e8e25-4aaf-415b-875d-e08dea5b1d56")
+		(property "Sheetname" "UI, audio, wireless: memory LCD, keypad, IMU, headphone + speaker amps, Bluetooth audio, GNSS"
+			(at 110 119.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.5 1.5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ui_audio_rf.kicad_sch"
+			(at 110 145.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 200 60)
+		(size 60 25)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3f6a0894-ce4c-4697-a932-53d14966f510")
+		(property "Sheetname" "RX front end: coil input protection, 20x differential preamp, ADC drivers"
+			(at 200 59.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.5 1.5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "rx_frontend.kicad_sch"
+			(at 200 85.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 290 60)
+		(size 60 25)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6955b2f5-e285-4744-adf6-b6a37ee3c660")
+		(property "Sheetname" "ADC: 2x ADS127L01 24-bit 512 kSPS, 2.5 V reference"
+			(at 290 59.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.5 1.5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "adc.kicad_sch"
+			(at 290 85.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20 120)
+		(size 60 25)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7129f8c9-b0b9-4102-87e1-4f134a8471f6")
+		(property "Sheetname" "MCU: STM32H743ZI, clocks, debug, storage"
+			(at 20 119.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.5 1.5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 20 145.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20 60)
+		(size 60 25)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "79d7d4d6-dbb9-4ea6-a520-02ccee26379b")
+		(property "Sheetname" "Power: charger, gauge, rails, TX boost converters"
+			(at 20 59.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.5 1.5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 20 85.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 290 120)
+		(size 60 25)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "e7ad8a77-c228-4c60-a567-3820b4eb76bb")
+		(property "Sheetname" "Search coil assembly (DD 11 in): windings, shield, ID chip"
+			(at 290 119.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.5 1.5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "coil.kicad_sch"
+			(at 290 145.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 110 60)
+		(size 60 25)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f86d4cac-e636-4f52-b0ae-c7021c4b49f8")
+		(property "Sheetname" "TX driver: 3-level H-bridge, current sense, over-current trip"
+			(at 110 59.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.5 1.5)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "tx_driver.kicad_sch"
+			(at 110 85.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

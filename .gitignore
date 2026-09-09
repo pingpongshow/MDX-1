@@ -1,0 +1,52 @@
+# ── OS / editor ──────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+# VS Code Local History (contains old file copies and its own nested .git)
+.history/
+**/.history/
+
+# ── Build artifacts ──────────────────────────────────────────
+# Firmware: compiled simulator, object files, test logs
+firmware/build/
+*.o
+*.elf
+*.bin
+*.map
+
+# Xcode: DerivedData / build output (leaks local build-environment paths)
+app/ios/build/
+app/ios/DerivedData/
+**/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Android
+app/android/build/
+app/android/.gradle/
+app/android/local.properties
+
+# ── KiCad ────────────────────────────────────────────────────
+# Local history, autosave, lock and backup files
+*-backups/
+*.kicad_pcb-bak
+*.kicad_sch-bak
+_autosave-*
+*.lck
+~*.lck
+fp-info-cache
+# Design-tool working/backup output (renders/reports/backups — generated, not shipped)
+hardware/mdx1/build/
+
+# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ── Third-party vendor datasheets (component PDFs — not ours to redistribute) ──
+docs/datasheets/
+
+# ── Personal distributor shopping-cart exports (contain name / account data) ──
+**/*Cart*.pdf

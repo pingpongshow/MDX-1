@@ -1,0 +1,90 @@
+(version 1)
+
+# JLCPCB capabilities (https://jlcpcb.com/capabilities/pcb-capabilities).
+# Values that Board Setup > Constraints already covers are not repeated here:
+#   min track 0.1 mm, min clearance 0.1 mm, min drill 0.15 mm, via hole-to-hole 0.2 mm,
+#   annular ring 0.2 mm, copper to edge 0.2 mm, silk line 0.15 mm, silk text 1.0 mm.
+
+(rule "through-hole vias only"
+  (constraint disallow buried_via micro_via))
+
+(rule "pad hole to pad hole 0.45 mm"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad'")
+  (constraint hole_to_hole (min 0.45mm)))
+
+(rule "NPTH pad annular ring 0.45 mm"
+  (condition "A.Pad_Type == 'NPTH, mechanical'")
+  (constraint annular_width (min 0.45mm)))
+
+(rule "pad to track 0.1 mm"
+  (condition "A.Type == 'Pad' && B.Type == 'Track'")
+  (constraint clearance (min 0.1mm)))
+
+(rule "SMD pad to SMD pad, different nets, 0.15 mm"
+  (condition "A.Pad_Type == 'SMD' && B.Pad_Type == 'SMD' && A.Net != B.Net")
+  (constraint clearance (min 0.15mm)))
+
+# BGA pad clearance 0.2 mm: no BGA on this board, so no rule is written. Do NOT express it with
+# A.Memberof(...) or A.Footprint_Type: those are not valid KiCad rule properties, and one invalid
+# expression makes KiCad discard the WHOLE .kicad_dru file silently. If a BGA is added, give its
+# nets their own net class with a 0.2 mm clearance instead.
+
+(rule "via hole to track 0.2 mm"
+  (condition "A.Type == 'Via' && B.Type == 'Track'")
+  (constraint hole_clearance (min 0.2mm)))
+
+(rule "PTH hole to track 0.28 mm"
+  (condition "A.Pad_Type == 'Through-hole' && B.Type == 'Track'")
+  (constraint hole_clearance (min 0.28mm)))
+
+(rule "NPTH hole to track 0.2 mm"
+  (condition "A.Pad_Type == 'NPTH, mechanical' && B.Type == 'Track'")
+  (constraint hole_clearance (min 0.2mm)))
+
+(rule "inner layer via hole to copper 0.2 mm"
+  (layer inner)
+  (condition "A.Type == 'Via'")
+  (constraint hole_clearance (min 0.2mm)))
+
+(rule "inner layer PTH hole to copper 0.3 mm"
+  (layer inner)
+  (condition "A.Pad_Type == 'Through-hole'")
+  (constraint hole_clearance (min 0.3mm)))
+
+(rule "pad to silkscreen 0.15 mm"
+  (layer "F.Silkscreen")
+  (condition "A.Type == 'Pad' && B.Layer == 'F.Silkscreen'")
+  (constraint silk_clearance (min 0.15mm)))
+
+(rule "pad to silkscreen 0.15 mm, back"
+  (layer "B.Silkscreen")
+  (condition "A.Type == 'Pad' && B.Layer == 'B.Silkscreen'")
+  (constraint silk_clearance (min 0.15mm)))
+
+# Annular ring: JLC's capability page gives 0.1 mm for plated holes, and Board Setup > Constraints
+# carries that as the minimum annular width for vias and component through-holes alike. No separate
+# PTH rule: the earlier 0.2 mm figure was stricter than the process actually requires and flagged 26
+# library pads (J5, U2, U3, U4 at 0.150-0.175 mm) that JLC builds without trouble.
+
+# Via-in-pad (POFV) is supported by JLC, so no rule forbids a via inside an SMD pad. Filled and
+# capped via-in-pad must be selected as an option at order time; plain vias in pads will wick solder.
+
+# High-voltage separation. The bridge output and the 100 V PI rail need generous spacing, but at a
+# component's own pads the package sets the geometry (U12 is a VSSOP-8 on 0.65 mm pitch, so SW_B sits
+# 0.15 mm from its neighbours whatever the board does; the INA241A2 is rated to 110 V common mode for
+# exactly this). The wide figure therefore applies where the designer has freedom: tracks, vias and
+# pours. 0.6 mm is IPC-2221 Table 6-1 for 31-100 V on an uncoated outer layer; drop to 0.4 mm if the
+# board is conformally coated.
+(rule "high voltage to other nets, open copper"
+  (condition "(A.NetClass == 'TX_Power' || A.NetClass == 'HV_Signal') && B.NetClass != 'TX_Power' && B.NetClass != 'HV_Signal' && A.Type != 'Pad' && B.Type != 'Pad'")
+  (constraint clearance (min 0.6mm)))
+
+# Same-net track spacing 0.25 mm. JLC applies this to *separate* copper features of one net;
+# KiCad has no way to exclude the connection points, so as a DRC rule it fires at every corner,
+# junction and pad entry. Left disabled: enable only for a one-off sliver hunt.
+# (rule "same-net track spacing 0.25 mm"
+#   (condition "A.Type == 'Track' && B.Type == 'Track' && A.Net == B.Net")
+#   (constraint physical_clearance (min 0.25mm)))
+
+# Board outline to V-cut clearance 0.4 mm: a panel/depanel process constraint, not a board rule.
+# Keep 0.4 mm of copper away from any V-scored edge when the panel is defined at order time.

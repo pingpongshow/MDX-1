@@ -1,0 +1,57 @@
+name: MDX1
+options:
+  bundleIdPrefix: com.mdx1
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "0.4.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  MDX1:
+    type: application
+    platform: iOS
+    sources:
+      - path: MDX1
+    info:
+      path: MDX1/Info.plist
+      properties:
+        CFBundleDisplayName: MDX-1
+        CFBundleName: MDX-1
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSBluetoothAlwaysUsageDescription: MDX-1 talks to the detector over Bluetooth Low Energy to show what it sees and to change its settings.
+        NSLocationWhenInUseUsageDescription: Your position is used to place finds on the map when the detector has no GPS fix.
+        UIBackgroundModes: [bluetooth-central]
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mdx1.companion
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
+  MDX1Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: MDX1Tests
+    dependencies:
+      - target: MDX1
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mdx1.companion.tests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  MDX1:
+    build:
+      targets:
+        MDX1: all
+        MDX1Tests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets: [MDX1Tests]

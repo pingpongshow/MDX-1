@@ -1,0 +1,212 @@
+"""Assemble docs/MDX-1_coil_manual.html from the coil calculations."""
+import os, json, math
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+cc = json.load(open(os.path.join(ROOT, "tools", "coil_calc.json")))
+ns = json.load(open(os.path.join(ROOT, "tools", "coil_null_symmetric.json")))
+tx, rx = cc["tx"], cc["rx"]
+null_w = ns["null_overlap_mm"]
+sens_uohm = ns["residual_uohm_per_mm_41k"]
+
+# ---- SVG drawing of the DD geometry (mm -> px, 1 mm = 1.6 px)
+S = 1.6; R = 140; cx, cy = 200, 200
+def d_path(flat_x, mirror):
+    a = math.degrees(math.acos(flat_x / R))
+    # arc from angle a to 360-a going through 180 (left side); mirror for the right D
+    x0, y0 = flat_x, R * math.sin(math.radians(a))
+    sgn = -1 if mirror else 1
+    p = "M %.1f %.1f A %.1f %.1f 0 1 %d %.1f %.1f Z" % (cx + sgn * x0 * S, cy - y0 * S, R * S, R * S, 1 if mirror else 0, cx + sgn * x0 * S, cy + y0 * S)
+    return p
+svg = f'''<svg viewBox="0 0 640 420" role="img" aria-label="DD coil geometry">
+<defs><marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+<circle cx="{cx}" cy="{cy}" r="{R*S}" class="shell"/>
+<path d="{d_path(null_w/2, False)}" class="txd"/>
+<path d="{d_path(null_w/2, True)}" class="rxd"/>
+<text x="{cx-95}" y="{cy+6}" class="lab txt">TX  23 t</text>
+<text x="{cx+55}" y="{cy+6}" class="lab rxt">RX  63 t</text>
+<line x1="{cx-R*S}" y1="{cy+R*S+22}" x2="{cx+R*S}" y2="{cy+R*S+22}" class="dim" marker-start="url(#a)" marker-end="url(#a)"/><text x="{cx}" y="{cy+R*S+38}" class="dimt" text-anchor="middle">280 mm centre-line diameter (11 in)</text>
+<line x1="{cx-null_w/2*S}" y1="{cy-R*S-18}" x2="{cx+null_w/2*S}" y2="{cy-R*S-18}" class="dim" marker-start="url(#a)" marker-end="url(#a)"/><text x="{cx}" y="{cy-R*S-24}" class="dimt" text-anchor="middle">overlap {null_w:.0f} mm (null)</text>
+<line x1="{cx}" y1="{cy-R*S-8}" x2="{cx}" y2="{cy+R*S+8}" class="axis"/>
+<g transform="translate(470,60)">
+<text x="0" y="0" class="lab">Cross-section at the overlap</text>
+<rect x="0" y="16" width="120" height="26" class="txb"/><text x="6" y="34" class="small">TX bundle 5 x 5 mm, on the base</text>
+<rect x="0" y="52" width="120" height="14" class="rxb"/><text x="6" y="63" class="small">RX bundle 2.5 x 2.5 mm, 4 mm above</text>
+<text x="0" y="90" class="small">shield: graphite tape, 10 mm gap at</text><text x="0" y="104" class="small">the cable side; drain to cable shield</text>
+<text x="0" y="132" class="lab">Cable exit</text><text x="0" y="148" class="small">at the centre spine, 12 o'clock;</text><text x="0" y="162" class="small">DS2431 on a 10 x 8 mm carrier here</text>
+</g>
+</svg>'''
+
+ots = [("MDX DD11 (this manual)", 0.36, 3.05, 0.63), ("Fisher F2 / F4 family (2.4 mH / 2.4 mH)", 2.4, 2.4, 10), ("Tesoro family (5.6 mH / 6.2 mH, 25 ohm)", 5.6, 6.2, 25), ("DetectorPro 2.4 kHz coils (9.5 mH / 10.3 mH)", 9.5, 10.3, 19)]
+def sens(Ltx, Lrx, V): return math.sqrt(Ltx / 0.36) * (0.36 / Ltx) * (V / 12.0) * math.sqrt(Lrx / 3.05)
+ots_rows = "".join("<tr><td>%s</td><td>%.2f / %.2f</td><td>%.0f mA</td><td>%+.1f dB</td><td>%.0f mA</td><td>%+.1f dB</td></tr>" % (n, a, b, 488 * 0.36 / a, 20 * math.log10(sens(a, b, 12)), 488 * 0.36 / a * 29.8 / 12, 20 * math.log10(sens(a, b, 29.8))) for n, a, b, r in ots)
+
+html = r'''<title>MDX-1 Coil Manual</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f2f4f6;--surface:#fff;--ink:#1b2129;--ink2:#4c5866;--mute:#7b8794;--line:#d5dbe2;--cu:#b5661c;--cu-soft:#f3e3d3;--sig:#2a6bb3;--sig-soft:#dfe9f6;--ok:#2f7d4f;--ok-soft:#dcefe3;--warn:#9a6b0a;--warn-soft:#f6ecd2;--code:#eef1f4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11151b;--surface:#181e26;--ink:#e6e9ee;--ink2:#b3bcc7;--mute:#7f8a97;--line:#2b333d;--cu:#d98a3f;--cu-soft:#3a2a1a;--sig:#6fa8e6;--sig-soft:#1d2a3a;--ok:#66b784;--ok-soft:#1b2f23;--warn:#d9b24c;--warn-soft:#332a14;--code:#1f262f}}
+:root[data-theme="dark"]{--bg:#11151b;--surface:#181e26;--ink:#e6e9ee;--ink2:#b3bcc7;--mute:#7f8a97;--line:#2b333d;--cu:#d98a3f;--cu-soft:#3a2a1a;--sig:#6fa8e6;--sig-soft:#1d2a3a;--ok:#66b784;--ok-soft:#1b2f23;--warn:#d9b24c;--warn-soft:#332a14;--code:#1f262f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:"Barlow Semi Condensed","Arial Narrow",sans-serif;text-wrap:balance;margin:0;line-height:1.1}h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700}h2{font-size:1.7rem;font-weight:600}h3{font-size:1.15rem;font-weight:600}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}header.top{border-bottom:1px solid var(--line);background:var(--surface)}header.top .wrap{padding:40px 0 28px;display:grid;gap:16px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cu)}.lede{font-size:1.12rem;color:var(--ink2);max-width:68ch}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}nav.toc .wrap{display:flex;gap:2px;overflow-x:auto}nav.toc a{white-space:nowrap;padding:10px 12px;font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink2);text-decoration:none;border-bottom:2px solid transparent}nav.toc a:hover,nav.toc a:focus-visible{color:var(--cu);border-bottom-color:var(--cu);outline:none}
+section{padding:40px 0 8px}section .wrap{display:grid;gap:18px}.secnum{font-family:"IBM Plex Mono",monospace;color:var(--cu);font-size:.85rem;letter-spacing:.1em}
+p{margin:0;max-width:72ch}ul,ol{margin:0;padding-left:1.2em;max-width:76ch}li{margin:.35em 0}li::marker{color:var(--cu)}strong{font-weight:600}a{color:var(--sig)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;align-items:start}.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:grid;gap:10px}
+table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}th,td{padding:8px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{font-family:"Barlow Semi Condensed",sans-serif;font-weight:600;color:var(--ink2);background:var(--code)}tr:last-child td{border-bottom:none}
+.callout{border-left:3px solid var(--cu);background:var(--cu-soft);padding:14px 18px;border-radius:0 6px 6px 0;max-width:80ch}.callout.warn{border-color:var(--warn);background:var(--warn-soft)}.callout.sig{border-color:var(--sig);background:var(--sig-soft)}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto}.fig svg{width:100%;min-width:600px;height:auto;display:block}
+.shell{fill:none;stroke:var(--mute);stroke-width:1.5;stroke-dasharray:4 4}.txd{fill:var(--cu-soft);stroke:var(--cu);stroke-width:3;fill-opacity:.7}.rxd{fill:var(--sig-soft);stroke:var(--sig);stroke-width:3;fill-opacity:.7}
+.lab{font-family:"Barlow Semi Condensed",sans-serif;font-size:15px;font-weight:600;fill:var(--ink)}.txt{fill:var(--cu)}.rxt{fill:var(--sig)}.small{font-family:"IBM Plex Sans",sans-serif;font-size:11px;fill:var(--ink2)}.dim{stroke:var(--ink2);stroke-width:1}.dimt{font-family:"IBM Plex Mono",monospace;font-size:11px;fill:var(--ink2)}.axis{stroke:var(--line);stroke-width:1;stroke-dasharray:2 3}.txb{fill:var(--cu-soft);stroke:var(--cu)}.rxb{fill:var(--sig-soft);stroke:var(--sig)}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:.9em}code{font-family:"IBM Plex Mono",monospace;font-size:.88em;background:var(--code);padding:1px 5px;border-radius:3px}
+.steps{counter-reset:s;display:grid;gap:10px;max-width:80ch}.steps>div{display:grid;grid-template-columns:38px 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px}.steps>div::before{counter-increment:s;content:counter(s);font-family:"Barlow Semi Condensed",sans-serif;font-size:1.5rem;font-weight:700;color:var(--cu);line-height:1}
+footer{padding:40px 0 60px;color:var(--mute);font-size:.85rem}
+</style>
+<header class="top"><div class="wrap">
+<div class="eyebrow">Build manual · coil rev A · 2026-09-05</div>
+<h1>MDX-1 search coil</h1>
+<p class="lede">How to build the 11-inch double-D coil the MDX-1 was designed around, with every dimension and winding count computed from the electromagnetic model, and how to use an off-the-shelf wired coil instead. The detector's coil wizard measures whatever coil is connected, so neither path needs an LCR meter for the electrical part.</p>
+</div></header>
+<nav class="toc"><div class="wrap"><a href="#spec">Specification</a><a href="#geo">Geometry</a><a href="#mat">Materials</a><a href="#build">Build steps</a><a href="#null">Nulling</a><a href="#cable">Cable and connector</a><a href="#chip">ID chip</a><a href="#test">Acceptance tests</a><a href="#ots">Off-the-shelf coils</a><a href="#safety">Safety</a></div></nav>
+
+<section id="spec"><div class="wrap"><div class="secnum">1</div><h2>Electrical specification</h2>
+<div class="grid2">
+<div class="tablewrap"><table><thead><tr><th>Winding</th><th>Turns</th><th>Wire</th><th>Inductance</th><th>Resistance</th><th>Wire length</th></tr></thead><tbody>
+<tr><td>TX (transmit D)</td><td>''' + str(tx["turns"]) + r'''</td><td>Litz 60 × 0.10 mm (0.80 mm Cu equivalent), or 0.80 mm solid enamelled</td><td>%.2f mH</td><td>%.2f Ω</td><td>%.1f m</td></tr>
+<tr><td>RX (receive D)</td><td>''' % (tx["L_mH"], tx["R_ohm"], tx["length_m"]) + str(rx["turns"]) + r'''</td><td>0.25 mm solid enamelled</td><td>%.2f mH</td><td>%.1f Ω</td><td>%.1f m</td></tr>
+</tbody></table></div>
+<div class="panel"><h3>Derived figures</h3>
+<ul>
+<li>RX self-resonance with 190 pF total (winding 30, shield 60, 1 m cable 100): <strong>%.0f kHz</strong>. Keep above 150 kHz: no more than 1.2 m of cable, and no foil shield directly on the RX bundle.</li>
+<li>Null overlap (RX D edge past TX D edge, both symmetric about the centre): <strong>%.1f mm</strong>. Sensitivity of the null: %.1f µH per mm, which is %.2f Ω of transfer impedance per mm at 41 kHz. That is why nulling is a two-stage job (section 5).</li>
+<li>TX field on axis at 5 kHz with the 12 V rail (0.49 A peak): 48 µT at 5 cm, 26 µT at 10 cm, 7.5 µT at 20 cm, 2.8 µT at 30 cm.</li>
+<li>Coil tolerance the firmware accepts without recalibration: inductance ±10 %%, resistance ±30 %%. The wizard measures and stores the real values.</li>
+</ul></div>
+</div>
+</div></section>''' % (rx["L_mH"], rx["R_ohm"], rx["length_m"], rx["SRF_kHz"], null_w, abs(ns["dM_uH_per_mm"]), sens_uohm * 1e-6) + r'''
+
+<section id="geo"><div class="wrap"><div class="secnum">2</div><h2>Geometry</h2>
+<div class="fig">''' + svg + r'''</div>
+<div class="grid2">
+<div class="panel"><h3>How the numbers were obtained</h3><p>The centre-line of each D is a 280 mm circle cut by a vertical chord. Inductance uses the Neumann formula on that path with the bundle's geometric mean distance as the self term; mutual inductance between the two D's is the same integral with the windings stacked 4 mm apart. The overlap was swept until the mutual inductance crossed zero. The script is <span class="mono">tools/coil_calc.py</span>; change the diameter or wire and it recomputes turns and null.</p></div>
+<div class="panel"><h3>Layout rules</h3><ul><li>TX D on the left, RX D on the right when the cable exits at 12 o'clock. Either way round works; the wizard defines the axes.</li><li>Both D edges parallel, overlap centred on the coil centre.</li><li>TX bundle sits on the base of the shell, RX bundle above it in the overlap region, separated by 4 mm of foam. This spacing is part of the calculation; changing it moves the null by roughly 1 mm per 2 mm of spacing.</li><li>Keep both bundles at least 8 mm from the shell wall so the shield and potting do not compress them.</li></ul></div>
+</div>
+</div></section>
+
+<section id="mat"><div class="wrap"><div class="secnum">3</div><h2>Materials</h2>
+<div class="tablewrap"><table><thead><tr><th>Item</th><th>Quantity</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Litz wire 60 × 0.10 mm (or 0.80 mm enamelled copper)</td><td>20 m</td><td>Litz halves the AC resistance at 41 kHz (skin depth 0.33 mm). Solid wire is acceptable: +0.2 Ω at 41 kHz.</td></tr>
+<tr><td>Enamelled copper 0.25 mm</td><td>55 m</td><td>Class 155 polyurethane enamel, solderable.</td></tr>
+<tr><td>Coil shell, open 11 in DD housing</td><td>1</td><td>Aftermarket blank DD shells (ABS, 290 mm) fit; or 3D-print in ASA with a 2 mm base and a separate cover.</td></tr>
+<tr><td>Closed-cell PE foam sheet, 4 mm</td><td>A4 sheet</td><td>Spacer between TX and RX at the overlap, and bundle support.</td></tr>
+<tr><td>Graphite shielding tape or graphite paint (200 – 2000 Ω/sq)</td><td>3 m / 100 ml</td><td>Electrostatic shield. Never use foil or copper tape: a closed conductive loop kills the 41 kHz line.</td></tr>
+<tr><td>Tinned drain wire 0.3 mm</td><td>2 m</td><td>Spiralled along each shield, joined to the cable shield only at the cable end.</td></tr>
+<tr><td>6-core screened cable, 24 AWG, PUR jacket, 6 mm OD</td><td>1.0 m</td><td>Two twisted pairs for TX and RX, one pair for ID/GND, overall braid.</td></tr>
+<tr><td>M12 A-coded 8-pin male cable connector, IP68</td><td>1</td><td>Mates with the panel socket on the control box.</td></tr>
+<tr><td>DS2431 1-Wire EEPROM (SOT-23) on a carrier</td><td>1</td><td>Coil identity and calibration; solder to a 10 × 8 mm scrap PCB.</td></tr>
+<tr><td>Two-part epoxy potting resin + glass microballoons</td><td>500 g</td><td>Low-exotherm, slow cure; microballoons reduce weight and shrinkage.</td></tr>
+<tr><td>Kapton tape, hot-melt glue, cable gland M12</td><td>-</td><td>Tacking, strain relief.</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="build"><div class="wrap"><div class="secnum">4</div><h2>Build steps</h2>
+<div class="steps">
+<div><div><strong>Print the winding templates.</strong> Two D shapes at 1:1 with the centre-line dimensions from section 2 (chord at ±''' + ("%.1f" % (null_w / 2)) + r''' mm from the centre). Pin nails every 25 mm just outside the line to form the winding jig on a board.</div></div>
+<div><div><strong>Wind the TX D.</strong> ''' + str(tx["turns"]) + r''' turns of Litz, keeping the bundle round and tight. Leave 300 mm tails. Bind every 40 mm with thread. Lift off the jig and tape the bundle with Kapton.</div></div>
+<div><div><strong>Wind the RX D.</strong> ''' + str(rx["turns"]) + r''' turns of 0.25 mm wire on the second template. Count carefully; every turn is 1.6 % of the inductance. Bind and tape as before.</div></div>
+<div><div><strong>Shield each bundle.</strong> Wrap graphite tape (or brush two coats of graphite paint over a Kapton wrap) with the drain wire spiralled underneath. Stop 10 mm short of closing the loop, on the side facing the cable exit, so the shield is a C, not an O. Bring each drain wire out with the winding tails.</div></div>
+<div><div><strong>Dry-fit in the shell.</strong> TX D on the base, RX D on 4 mm foam over the TX in the overlap region. The RX D must be free to slide ±5 mm across the overlap. Route all tails to the cable exit; keep TX tails twisted together and RX tails twisted together.</div></div>
+<div><div><strong>Terminate the cable.</strong> Pinout in section 6. Solder the DS2431 carrier to the ID and GND cores. Fit the cable gland. Do not connect the drain wires to the shell.</div></div>
+<div><div><strong>Coarse null.</strong> Connect to the MDX-1, open Menu → Coil wizard, run step 1 (L and R are measured from the transmit current, expect ''' + ("%.2f mH / %.2f Ω" % (tx["L_mH"], tx["R_ohm"])) + r''' ±10 %). Step 2 shows the residual per line live. Slide the RX D until the 41 kHz residual is smallest, then check the 5 kHz line; they null within 0.5 mm of each other. Tack with hot-melt at four points.</div></div>
+<div><div><strong>Fine null with a bucking loop.</strong> Section 5. Target: residual under 0.3 Ω at 41 kHz (20 mV at the preamp), under 0.1 Ω at 5 kHz.</div></div>
+<div><div><strong>Pot in two pours.</strong> First pour to just cover the TX bundle; cure fully; re-check the null (it will move a little as the resin shrinks); adjust the bucking loop; second pour to cover the RX. Cure 24 h. Fit the cover with a bead of resin.</div></div>
+<div><div><strong>Final calibration.</strong> Run the whole wizard: air null, ferrite rod (defines the magnetic axis per line), and a copper coin at 10 cm (depth reference). Save; the record is written to the DS2431 and the coil is now plug-and-play.</div></div>
+</div>
+</div></section>
+
+<section id="null"><div class="wrap"><div class="secnum">5</div><h2>Nulling</h2>
+<div class="grid2">
+<div class="panel"><h3>Why two stages</h3><p>The null moves by %.1f µH per millimetre of overlap. At 41 kHz with the 12 V rail (63 mA on that line) that is 94 mV of residual per millimetre at the coil, and the receive chain saturates at 125 mV. Mechanical positioning gets you to about 0.3 mm; the bucking loop covers the last few hundred microhenries without touching the D's.</p>
+<p>The residual does not need to be zero. The firmware measures it in the air null step and subtracts it; what matters is that it is small enough to leave headroom (under 60 mV at every line) and stable with temperature, which is a potting question.</p></div>
+<div class="panel"><h3>Bucking loop procedure</h3><ol>
+<li>Cut 600 mm of the 0.25 mm RX wire. Form a single loop of about 40 mm diameter and connect it in series with the RX winding (break the RX tail inside the shell).</li>
+<li>Lay the loop flat in the overlap zone. Moving it toward the TX D increases negative coupling, toward the RX D positive; rotating it 180° flips the sign. Watch the 41 kHz residual on the wizard screen.</li>
+<li>When the 41 kHz residual is minimal, check 5 kHz. If the two disagree by more than 0.1 Ω, the phase of the residual differs between lines: a small piece of ferrite (2 mm) or aluminium foil (5 × 5 mm) taped near the loop trims the reactive part. Aluminium adds a lossy (eddy) component, ferrite a magnetic one.</li>
+<li>Tack, re-check, pot.</li></ol></div>
+</div>
+<div class="callout">The wizard screen shows the residual in µΩ and in mV at the preamp. Numbers to expect after coarse positioning: 0.5 to 2 Ω (30 to 120 mV) at 41 kHz. After the loop: under 0.3 Ω. After potting: a shift of 0.05 to 0.2 Ω, which the air-null step absorbs.</div>
+</div></section>
+
+<section id="cable"><div class="wrap"><div class="secnum">6</div><h2>Cable and connector</h2>
+<div class="grid2">
+<div class="tablewrap"><table><thead><tr><th>M12 pin</th><th>Signal</th><th>Cable core</th><th>Notes</th></tr></thead><tbody>
+<tr><td>1</td><td>TX+</td><td>pair A, white</td><td>to bridge output A (COIL_TX+)</td></tr>
+<tr><td>2</td><td>TX−</td><td>pair A, brown</td><td>through the 20 mΩ shunt (COIL_TX−)</td></tr>
+<tr><td>3</td><td>RX+</td><td>pair B, green</td><td>preamp input +</td></tr>
+<tr><td>4</td><td>RX−</td><td>pair B, yellow</td><td>preamp input −</td></tr>
+<tr><td>5</td><td>GND / shield</td><td>braid + pair C, grey</td><td>cable braid and both winding drains land here; the shell is not grounded</td></tr>
+<tr><td>6</td><td>COIL_ID</td><td>pair C, pink</td><td>1-Wire data to the DS2431, 4.7 kΩ pull-up in the control box</td></tr>
+<tr><td>7</td><td>spare (+3V3 in a future revision)</td><td>-</td><td>reserved for active coils</td></tr>
+<tr><td>8</td><td>spare</td><td>-</td><td>reserved</td></tr>
+</tbody></table></div>
+<div class="panel"><h3>Cable practice</h3><ul><li>TX pair carries up to 3 A peak in PI mode and 100 V edges: keep it twisted and away from the RX pair inside the shell; in the cable the pairs are separate.</li><li>The RX pair adds capacitance in parallel with the RX winding (about 100 pF per metre). Do not extend the cable.</li><li>Braid drained at the control-box end only. Inside the coil the drain wires join the braid at the gland.</li><li>Strain relief: 40 mm of the cable is potted into the spine.</li></ul></div>
+</div>
+</div></section>
+
+<section id="chip"><div class="wrap"><div class="secnum">7</div><h2>Identity chip record (DS2431, 128 bytes)</h2>
+<div class="tablewrap"><table><thead><tr><th>Offset</th><th>Size</th><th>Field</th><th>Content</th></tr></thead><tbody>
+<tr><td>0</td><td>4</td><td>magic</td><td>0x4D445831 "MDX1"</td></tr>
+<tr><td>4</td><td>1</td><td>type</td><td>1 DD, 2 mono, 3 concentric</td></tr>
+<tr><td>5</td><td>1</td><td>size</td><td>diameter in cm</td></tr>
+<tr><td>6</td><td>1</td><td>version</td><td>record format, 1</td></tr>
+<tr><td>7</td><td>1</td><td>flags</td><td>bit 0 null stored, bit 1 rotation stored, bit 2 depth reference stored</td></tr>
+<tr><td>8</td><td>12</td><td>name</td><td>ASCII, shown on the home screen</td></tr>
+<tr><td>20</td><td>16</td><td>L_tx, R_tx, L_rx, R_rx</td><td>float32, mH / Ω</td></tr>
+<tr><td>36</td><td>40</td><td>null[5]</td><td>complex float32 per line, residual transfer impedance in Ω</td></tr>
+<tr><td>76</td><td>40</td><td>rot[5]</td><td>complex unit phasor per line rotating measurements so that magnetic material reads +real</td></tr>
+<tr><td>116</td><td>4</td><td>depth_ref</td><td>|T| of the reference coin at 10 cm, Ω</td></tr>
+<tr><td>120</td><td>2</td><td>serial</td><td>coil serial</td></tr>
+<tr><td>122</td><td>4</td><td>reserved</td><td>-</td></tr>
+<tr><td>126</td><td>2</td><td>crc</td><td>CRC-16/CCITT-FALSE over bytes 0..125</td></tr>
+</tbody></table></div>
+<p>Coils without a chip work too: the detector keeps one calibration record in its own memory for a "chip-less" coil and shows "no chip" on the diagnostics screen. The wizard must be re-run when such a coil is swapped.</p>
+</div></section>
+
+<section id="test"><div class="wrap"><div class="secnum">8</div><h2>Acceptance tests</h2>
+<div class="tablewrap"><table><thead><tr><th>Test</th><th>Method</th><th>Pass</th></tr></thead><tbody>
+<tr><td>TX winding</td><td>Coil wizard step 1 (regression on the transmit current)</td><td>L within 10 % and R within 30 % of the table in section 1</td></tr>
+<tr><td>RX self-resonance</td><td>LCR meter at the connector, or sweep: the diagnostics noise figure rises sharply near resonance</td><td>above 150 kHz</td></tr>
+<tr><td>Residual null</td><td>Wizard step 2, coil in air 1 m from any metal</td><td>under 0.3 Ω at 41 kHz, under 0.1 Ω at 5 kHz, no OVERLOAD flag at TX power 10</td></tr>
+<tr><td>Noise floor</td><td>Diagnostics screen, coil in air, sensitivity 20</td><td>floor under 30 µΩ; the electronics alone contribute about 5 µΩ</td></tr>
+<tr><td>Air test</td><td>Copper coin swept at 20 cm, 25 cm, 30 cm below the coil, 1 m/s</td><td>ID within ±3 of the 10 cm value at all three distances; audible at 30 cm at sensitivity 24</td></tr>
+<tr><td>Ferrous</td><td>Nail at 10 cm</td><td>Ferrous index above 55, rejected in Field program</td></tr>
+<tr><td>PI mode</td><td>Oscilloscope on RX+ / RX− at the preamp input, PI mode, no target</td><td>ringing settled to under 20 mV by 5 µs after each reversal (checks the shield gap and cable dressing)</td></tr>
+<tr><td>Thermal</td><td>Freezer 30 min, then wizard step 2</td><td>residual shift under 0.2 Ω</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="ots"><div class="wrap"><div class="secnum">9</div><h2>Using an off-the-shelf coil</h2>
+<p>Any <strong>wired</strong> induction-balance coil with separate transmit and receive windings can be used: DD, concentric or mono-plus-receive. Coils that contain their own electronics (wireless designs) cannot. The MDX-1 does not require a particular inductance because the transmit rail is programmable and the receive chain has no tuned circuits; the coil wizard measures the coil and calibrates the null, the magnetic axis and the depth scale.</p>
+<div class="grid2">
+<div class="tablewrap"><table><thead><tr><th>Coil</th><th>TX / RX inductance (mH)</th><th>5 kHz line current at 12 V</th><th>Sensitivity vs MDX DD11</th><th>At 30 V rail</th><th>Sensitivity</th></tr></thead><tbody>''' + ots_rows + r'''</tbody></table></div>
+<div class="panel"><h3>Reading the table</h3><p>Sensitivity here is transmit ampere-turns times receive turns, relative to the MDX coil at 12 V, assuming similar geometry. A high-inductance coil has more turns per volt of drive but proportionally less current, so it loses about 9 dB at the default rail and recovers to within about 1 dB when TX power is set to 10 (30 V). Set TX power to 8 to 10 for any coil above 1 mH. The published figures for these families come from Geotech forum measurements; measure your own coil with the wizard, since manufacturers do not publish them.</p></div>
+</div>
+<div class="grid2">
+<div class="panel"><h3>Identify the windings</h3><ol><li>With an ohmmeter at the coil plug, find the two pairs. The lower-resistance pair (typically 1 to 6 Ω on modern coils, up to 25 Ω on older ones) is TX; the higher pair is RX. On a five-pin plug the fifth pin is the shield.</li><li>If both pairs read the same, wind three turns of any wire round the coil, drive it from a signal generator, and the pair with the larger induced voltage is RX (more turns).</li><li>Note any built-in capacitor across a winding (some brands resonate the TX): it must be removed, since the MDX-1 drives a rectangular waveform.</li></ol></div>
+<div class="panel"><h3>Adapter and setup</h3><ol><li>Make an adapter from the coil's plug to the M12 socket using the pinout in section 6. Leave pin 6 unconnected (no chip); the firmware falls back to its internal record.</li><li>Menu → Coil wizard. Step 1 measures L and R; if L is above 8 mH or R above 40 Ω the wizard warns that TX current will be low.</li><li>Air null, ferrite, coin: as for the MDX coil. Save.</li><li>Set TX power 8 to 10 for coils above 1 mH. Watch the OVERLOAD flag on the home screen: a poorly nulled commercial coil can exceed the 125 mV input range at high power; reduce TX power until it clears.</li><li>Noise cancel, then ground balance as usual.</li></ol></div>
+</div>
+<div class="callout warn">Self-resonance: 6 to 10 mH receive windings with their own cable often resonate between 60 and 100 kHz. The 41 kHz line then sits near resonance, where the winding's gain and phase move with temperature. The wizard's rotation step compensates the phase at the time of calibration; if the 41 kHz ID drifts in the field, run the air-null step again, or use the Multi mode's lower lines by selecting the Beach program, which weights 5 to 20 kHz.</div>
+</div></section>
+
+<section id="safety"><div class="wrap"><div class="secnum">10</div><h2>Safety</h2>
+<ul>
+<li>PI and Hybrid modes put ±100 V edges on the TX winding and cable. Use only the specified cable and connector, and do not use an off-the-shelf coil in PI mode unless its TX winding insulation and connector are rated for 150 V. The Multi and single-frequency modes stay under 30 V.</li>
+<li>The transmit winding dissipates under 0.5 W in any mode; no thermal precautions are needed.</li>
+<li>Potting resin: follow the manufacturer's ventilation and skin-protection guidance; low-exotherm resin only, in two pours, to avoid softening the shell.</li>
+</ul>
+</div></section>
+<footer><div class="wrap"><p>Numbers in this manual are produced by <span class="mono">tools/coil_calc.py</span> (Neumann-formula inductance and mutual inductance on the D-shaped centre-lines) and match the firmware's coil model. Commercial coil inductances from Geotech forum threads on the TGSL, Tesoro and DetectorPro coils.</p></div></footer>
+'''
+out = os.path.join(ROOT, "docs", "MDX-1_coil_manual.html")
+open(out, "w").write(html)
+print("wrote", out, len(html) // 1024, "KB")
