@@ -50,3 +50,6 @@ docs/datasheets/
 
 # ── Personal distributor shopping-cart exports (contain name / account data) ──
 **/*Cart*.pdf
+
+# ── Local-only commercial-coil notes (names third-party brands; kept off the repo) ──
+docs/MDX-1_commercial_coils.md
