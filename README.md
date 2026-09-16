@@ -14,6 +14,10 @@ MDX-1 is a from-scratch detector design: a KiCad schematic and 4-layer main boar
 >
 > The transmit stage switches up to **100 V** through an H-bridge into an inductive load. Treat it as a hazardous-voltage circuit: it can injure you and destroy parts if mis-built. Build and power it only if you are competent with high-voltage switching electronics.
 
+![MDX-1 main board, 3D top view](hardware/mdx1/images/mdx1_main_3d_top.png)
+
+*Main board, populated (3D view). Per-layer plots for both boards are in [`hardware/mdx1/images/`](hardware/mdx1/images/).*
+
 ## Layout
 
 | Path | What |
@@ -23,13 +27,16 @@ MDX-1 is a from-scratch detector design: a KiCad schematic and 4-layer main boar
 | `hardware/mdx1/mdx1.kicad_pcb` | 135 × 92 mm 4-layer main board — footprints, nets, pours, routing, outline. |
 | `hardware/mdx1/mdx1_ui.kicad_pcb` | 82 × 60 mm 2-layer UI board (LCD, keypad, pinpoint trigger, power key, LEDs, front-light). |
 | `hardware/mdx1/MDX*.kicad_sym`, `MDX.pretty/` | Project-local symbol/footprint libraries. |
-| `hardware/mdx1/fab/` | JLCPCB fabrication packages: Gerbers, drill, assembly BOM and pick-and-place for both boards; interconnect BOM. |
+| `hardware/mdx1/fab/` | Fabrication packages: Gerbers, drill, assembly BOM and pick-and-place for both boards (`Gerbers/`, `BOM/`, `PNP/`); interconnect BOM; enclosure DXFs (`Case/`). |
+| `hardware/mdx1/images/` | Rendered board views: per-layer plots (copper, silkscreen) and a 3D top view of each board. |
 | `firmware/` | Portable core (`core/`), host physics simulator + test bench (`sim/`), STM32H743 target layer (`stm32/`). `make test` runs the bench. |
 | `app/ios/` | SwiftUI companion app (BLE): live status, on-detector menu, finds map, diagnostics; built-in demo detector. |
 | `app/android/` | Kotlin/Compose port of the companion app. |
 | `docs/MDX-1_design_report.html` | Hardware design report. |
 | `docs/MDX-1_coil_manual.html` | Search-coil build manual and off-the-shelf coil path. |
 | `docs/MDX-1_firmware_guide.html` | Firmware guide with test evidence and screen renders. |
+| `docs/MDX-1_assembly.md` | Board population guide (build order, critical parts, mounting). |
+| `docs/MDX-1_bringup.md` | Staged first-power procedure — populate/verify one subsystem at a time. |
 | `docs/MDX-1_link_protocol.md` | Phone-link protocol (frames, item table, status packet, actions). |
 | `docs/MDX-1_schematic.pdf` | All schematic sheets. |
 | `docs/datasheets/` | Third-party component datasheets used during the design review — **not included in this repository** (vendor copyright); part numbers are in the BOM under `hardware/mdx1/fab/`. |

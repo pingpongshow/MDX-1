@@ -257,8 +257,8 @@ footer .wrap{display:grid;gap:10px}
 <section id="verify"><div class="wrap">
 <div class="secnum">10</div><h2>Verification status</h2>
 <div class="status">
-<div class="panel"><div class="big">1104 / 1104</div><div class="lab">pin connections in KiCad's netlist export match the generator's intended netlist (238 nets, 0 merged, 0 split, 0 missing)</div></div>
-<div class="panel"><div class="big">0 / 0</div><div class="lab">ERC errors and warnings on the rev A5 schematic; 89 pin-attached capacitors placed automatically beside their pins on the two boards</div></div>
+<div class="panel"><div class="big">1104 / 1104</div><div class="lab">pin connections in KiCad's netlist export match the intended netlist (238 nets, 0 merged, 0 split, 0 missing)</div></div>
+<div class="panel"><div class="big">0 / 0</div><div class="lab">ERC errors and warnings on the schematic; 89 pin-attached decoupling capacitors sit beside their pins on the two boards</div></div>
 <div class="panel"><div class="big">0</div><div class="lab">missing footprints; every part has a library footprint, the Bluetooth module has a project-local one</div></div>
 <div class="panel"><div class="big">0</div><div class="lab">routed nets. The board is a placement only; routing, zone fill and DRC clean-up are the next hardware task</div></div>
 </div>
@@ -300,8 +300,8 @@ footer .wrap{display:grid;gap:10px}
 <section id="next"><div class="wrap">
 <div class="secnum">12</div><h2>Next steps</h2>
 <ol>
-<li><strong>Desk review of the schematic</strong> against datasheets for the configuration pins listed in section 10, then validate the STM32 pin map in CubeMX. Edit the generator, re-run it, and the netlist check and ERC re-run in seconds.</li>
-<li><strong>Route both boards</strong> in KiCad from the placed files, following the rules in section 9; fill zones; clear DRC. The main board can now shrink below 135 × 92 mm since its UI zone only holds the IMU, audio and radios.</li>
+<li><strong>Desk review of the schematic</strong> against datasheets for the configuration pins listed in section 10, then validate the STM32 pin map in CubeMX. Edit the schematic directly in KiCad and re-run ERC and the netlist check.</li>
+<li><strong>Fabricate both boards</strong> from the routed KiCad files (the fabrication package — Gerbers, drill, BOM and pick-and-place — is under <span class="mono">hardware/mdx1/fab/</span>); re-run DRC against your fab's design rules and refill zones before ordering.</li>
 <li><strong>Build the coil</strong> to the sheet-7 specification and null it on the bench to under 20 mV residual at the preamp input; program the DS2431 with the null vectors.</li>
 <li><strong>Bring-up firmware</strong> in this order: rails and DAC-set VTX, TIM1 waveform on a resistive load, ADC streaming and DFT, then the coil. Measure the actual five-line spectrum and noise floor and compare with the figures here.</li>
 <li><strong>Field firmware</strong>: ground model, target ID map, noise cancel, audio; then the PI sequence. Benchmark against a mature commercial reference detector on a test garden with buried targets at known depths, because that is the only comparison that counts.</li>

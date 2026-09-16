@@ -70,7 +70,7 @@ STRAPS = [
  ("HV bleed", "resistor", "4.7 kΩ 1 W (2.1 W peak)", "Pulse power for a 100 V bank", "10 kΩ 1 W, 1.4 s discharge", "fixed"),
  ("BQ27441-G1", "BAT", "no bypass", "0.1 µF at BAT recommended", "100 nF added", "fixed"),
  ("PAM8302A", "IN± coupling, VDD bypass", "1 µF, 100 nF", "0.1 to 0.22 µF input coupling; 1 µF at VDD", "220 nF and 1 µF", "fixed"),
- ("Bring-up", "test points", "none", "-", "17 test pads: ITX, fault, coil TX/RX, VOCM, ADC inputs, reference, SAI lines, SWO, NRST", "fixed"),
+ ("Bring-up", "test points", "none", "-", "15 test pads: ITX, fault, coil TX/RX, VOCM, ADC inputs, reference, SAI lines, SWO, NRST", "fixed"),
  ("Rev A4: STM32H743 VDD", "14 VDD pins", "one capacitor per pin (11)", "Owner's call: VDD pins on the +3V3 plane, one bulk + one HF capacitor", "4.7 µF + 100 nF at the package; VCAP1/2 keep their 2.2 µF (core-regulator outputs, required by ST); VDDA keeps bead + 1 µF / 100 nF", "fixed"),
  ("Rev A4: keypad", "8 keys + power", "MENU BACK UP DOWN LEFT RIGHT PINPOINT GB POWER", "Owner's call: simplify", "MENU UP DOWN LEFT RIGHT + PINPOINT trigger + POWER; BACK = MENU held 0.8 s, ground grab = PINPOINT held 1.5 s; PG15 and PB4 freed", "fixed"),
  ("Rev A5: headless option", "UI link pin 8, PG15", "second GND", "Owner's call: run with or without the UI board", "Pin 8 = UI_DET: grounded on the UI board, 10 k pull-up to +3V3 on the main board, read at boot (MDX_UI_BOARD 0/1/2); main-board POWER button and status LED added in parallel with the UI board's", "fixed"),
@@ -144,7 +144,7 @@ footer{padding:36px 0 60px;color:var(--mute);font-size:.84rem}
 <nav class="toc"><div class="wrap"><a href="#straps">Strap review</a><a href="#pins">MCU pin map</a><a href="#cost">Cost estimate</a><a href="#bom">Full BOM</a><a href="#off">Off-board</a></div></nav>
 
 <section id="straps"><div class="wrap"><div class="secnum">1</div><h2>Datasheet review of configuration pins</h2>
-<p>Sources: TI datasheets for ADS127L01, TPS65131, TPS63001, TPS7A20, UCC27714, INA241A, TLV3501, OPA1612, THS4551, BQ24075, BQ27441-G1, TPA6132A2, REF5025; Analog Devices LT3045, LT3094, LT3757; Infineon BSC190N15NS3; Diodes PAM8302A (from your <span class="mono">docs/datasheets</span> folder); ST LSM6DSM and STM32H743 DS12110 rev 11; u-blox MAX-M10S; Sharp LS027B7DH01. Items marked <span class="v fixed">changed</span> were wrong or missing and are corrected in the regenerated rev A4 schematic; rows marked "Owner's call" are design decisions taken on the owner's instruction. The netlist check and ERC were re-run afterwards (1104 of 1104 connections, ERC clean: 0 errors, 0 warnings).</p>
+<p>Sources: TI datasheets for ADS127L01, TPS65131, TPS63001, TPS7A20, UCC27714, INA241A, TLV3501, OPA1612, THS4551, BQ24075, BQ27441-G1, TPA6132A2, REF5025; Analog Devices LT3045, LT3094, LT3757; Infineon BSC190N15NS3; Diodes PAM8302A (from your <span class="mono">docs/datasheets</span> folder); ST LSM6DSM and STM32H743 DS12110 rev 11; u-blox MAX-M10S; Sharp LS027B7DH01. Items marked <span class="v fixed">changed</span> were wrong or missing and are corrected in the current schematic; rows marked "Owner's call" are design decisions taken on the owner's instruction. ERC and the netlist were re-checked afterwards (ERC clean: 0 errors, 0 warnings).</p>
 <div class="tablewrap"><table><thead><tr><th>Part</th><th>Pin / network</th><th>As designed (rev A1)</th><th>Datasheet rule</th><th>Action</th><th>Result</th></tr></thead><tbody>''' + strap_html + r'''</tbody></table></div>
 <div class="callout warn">Two of the corrections mattered functionally: the ADS127L01 straps selected SPI mode and frame-sync <em>master</em>, the opposite of what the rev A1 SAI interface needs, and the LT3045 SET resistor would have produced 10 V on the +5VA rail (the OPA1612 and THS4551 would have survived, the ADS127L01 reference path would not). Both are fixed. The rest were housekeeping: compensation capacitors, unused-pin terminations, capacitor values and can sizes.</div>
 </div></section>
@@ -176,7 +176,7 @@ footer{padding:36px 0 60px;color:var(--mute);font-size:.84rem}
 </tbody></table></div>
 <div class="panel"><h3>How to read these numbers</h3><ul><li>The board-only figure answers "what does it cost to build the PCB": about ''' + money(proto) + r''' for the first assembled board, falling to ''' + money(five) + r''' each for five and ''' + money(hund) + r''' at a hundred.</li><li>Component prices for the STM32H743, ADS127L01, LT3045, LT3094, MAX-M10S and the Sharp display are September 2026 distributor listings; everything else is catalogue-typical and should be read as ±30 %. The spreadsheet has every unit price as an editable input so a live quote can replace them.</li><li>Buying qty-1 passives means bags of 10–100, which adds roughly $30–50 to a first build beyond the attrition line.</li><li>The two most expensive board components are the two ADCs and the MCU; the display is the most expensive single part overall. There is no realistic saving on the ADC without giving up the design's main advantage.</li></ul></div>
 </div>
-<p>The workbook <span class="mono">hardware/mdx1/MDX-1_BOM.xlsx</span> contains the same three views (BOM, Off-board, Cost estimate) with the totals as live formulas.</p>
+<p>The consolidated, orderable per-board bills of materials (grouped by manufacturer part number, with pick-and-place files) are under <span class="mono">hardware/mdx1/fab/BOM/</span> and <span class="mono">hardware/mdx1/fab/PNP/</span>, generated from the board by <span class="mono">tools/fab_jlc.py</span>.</p>
 </div></section>
 
 <section id="bom"><div class="wrap"><div class="secnum">4</div><h2>Bill of materials, main board and UI board (rev A5)</h2>
@@ -187,7 +187,7 @@ footer{padding:36px 0 60px;color:var(--mute);font-size:.84rem}
 <section id="off"><div class="wrap"><div class="secnum">5</div><h2>Off-board items for a complete detector</h2>
 <div class="tablewrap"><table><thead><tr><th>Group</th><th class="num">Qty</th><th>Item</th><th>Source</th><th>MPN</th><th>Rating</th><th class="num">Ext $ (proto)</th><th class="num">Ext $ (100)</th></tr></thead><tbody>''' + off_html + r'''<tr class="cat"><td colspan="6">Off-board total</td><td class="num">''' + money(off1) + r'''</td><td class="num">''' + money(off100) + r'''</td></tr></tbody></table></div>
 </div></section>
-<footer><div class="wrap"><p>Generated by <span class="mono">tools/build_bom.py</span> and <span class="mono">tools/build_review.py</span> from the rev A5 schematic (UI-board lines grouped under their own headings). Files: <span class="mono">hardware/mdx1/MDX-1_BOM.xlsx</span>, <span class="mono">MDX-1_BOM.csv</span>.</p></div></footer>
+<footer><div class="wrap"><p>Generated by <span class="mono">tools/build_review.py</span> from <span class="mono">tools/bom_data.json</span> (UI-board lines grouped under their own headings). The fabrication BOMs and pick-and-place files are under <span class="mono">hardware/mdx1/fab/</span>.</p></div></footer>
 '''
 out = os.path.join(ROOT, "docs", "MDX-1_review_bom.html")
 open(out, "w").write(html)

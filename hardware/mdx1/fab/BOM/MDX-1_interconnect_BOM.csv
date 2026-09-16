@@ -3,6 +3,7 @@ FFC jumper 20-way,1,"20 circuits, 0.5 mm pitch, 0.30 mm thick, OPPOSITE-SIDE con
 JST PH housing 2-pin,2,"PH series crimp housing, 2 way, 2.0 mm pitch",J9 speaker on the main board; J12 front-light on the UI board,JST,PHR-2,One per connector
 JST PH housing 3-pin,1,"PH series crimp housing, 3 way, 2.0 mm pitch",J3 battery on the main board,JST,PHR-3,
 JST PH crimp contact,8,"SPH-002T-P0.5S crimp terminal, 22-28 AWG",loose contacts for PHR-2 and PHR-3 above,JST,SPH-002T-P0.5S,"2 + 2 + 3 contacts plus one spare; needs the JST WC-240 crimp tool or equivalent"
-Coil cable connector,1,"Mating plug for the coil connector",J4 on the main board,,,"NOTE: the schematic calls J4 an M12 8-pin A-coded panel connector but the PCB footprint fitted is a Molex PicoBlade 53398-0671 (6-way, 1.25 mm). Resolve this before ordering: if PicoBlade is intended, the mate is a Molex 51021-0600 housing with 50079-8000 contacts."
+Coil cable connector housing,1,"6-way crimp housing, 2.54 mm pitch (mates the J4 pin header)",J4 on the main board,Molex,22-01-3067,"J4 is a 1x06 2.54 mm vertical pin header (Wurth 61300611121). Mate is a KK-254 6-circuit housing (Molex 22-01-3067) with 08-50-0114 crimp terminals, or any 2.54 mm 6-pos socket. Pin 6 (COIL_ID) may be left unwired for coils with no ID chip."
+Coil cable crimp contact,7,"KK-254 crimp terminal, 22-30 AWG",loose contacts for the coil housing above,Molex,08-50-0114,"6 contacts plus one spare"
 LCD flex,0,"No separate part: the Sharp LS027B7DH01 has an integrated 10-way FPC tail that inserts directly into J11",J11 on the UI board,Sharp,LS027B7DH01,Panel is ordered as the display assembly
 SWD programming cable,1,"2x5 1.27 mm ribbon, keyed",J5 on the main board,,,"Standard Cortex-M 10-pin debug cable supplied with most SWD probes"
