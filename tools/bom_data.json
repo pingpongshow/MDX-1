@@ -10,7 +10,7 @@
    "Rating": "1.7–3.6 V",
    "Manufacturer": "STMicroelectronics",
    "MPN": "STM32H743ZIT6",
-   "Unit price qty 1 (USD)": 16.37,
+   "Unit price qty 1 (USD)": 18.29,
    "Unit price qty 100 (USD)": 11.11
   },
   {
@@ -23,7 +23,7 @@
    "Rating": "AVDD 3 V, DVDD 1.8–3.6 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "ADS127L01IPBSR",
-   "Unit price qty 1 (USD)": 11.82,
+   "Unit price qty 1 (USD)": 18.97,
    "Unit price qty 100 (USD)": 8.58
   },
   {
@@ -36,7 +36,7 @@
    "Rating": "AVDD 3 V, DVDD 1.8–3.6 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "ADS127L01IPBSR",
-   "Unit price qty 1 (USD)": 11.82,
+   "Unit price qty 1 (USD)": 18.97,
    "Unit price qty 100 (USD)": 8.58
   },
   {
@@ -49,7 +49,7 @@
    "Rating": "−20 V in",
    "Manufacturer": "Analog Devices",
    "MPN": "LT3094EMSE#PBF",
-   "Unit price qty 1 (USD)": 8.9,
+   "Unit price qty 1 (USD)": 10.0,
    "Unit price qty 100 (USD)": 6.2
   },
   {
@@ -62,7 +62,7 @@
    "Rating": "40 V",
    "Manufacturer": "Analog Devices",
    "MPN": "LT3757EMSE#PBF",
-   "Unit price qty 1 (USD)": 6.5,
+   "Unit price qty 1 (USD)": 7.59,
    "Unit price qty 100 (USD)": 4.4
   },
   {
@@ -75,7 +75,7 @@
    "Rating": "40 V",
    "Manufacturer": "Analog Devices",
    "MPN": "LT3757EMSE#PBF",
-   "Unit price qty 1 (USD)": 6.5,
+   "Unit price qty 1 (USD)": 7.59,
    "Unit price qty 100 (USD)": 4.4
   },
   {
@@ -88,7 +88,7 @@
    "Rating": "±2.25 to ±18 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "OPA1612AIDR",
-   "Unit price qty 1 (USD)": 5.4,
+   "Unit price qty 1 (USD)": 7.4,
    "Unit price qty 100 (USD)": 3.6
   },
   {
@@ -101,7 +101,7 @@
    "Rating": "2.7–18 V in",
    "Manufacturer": "Texas Instruments",
    "MPN": "REF5025ID",
-   "Unit price qty 1 (USD)": 5.4,
+   "Unit price qty 1 (USD)": 9.71,
    "Unit price qty 100 (USD)": 3.7
   },
   {
@@ -114,7 +114,7 @@
    "Rating": "2.7–5.5 V in",
    "Manufacturer": "Texas Instruments",
    "MPN": "TPS65131RGER",
-   "Unit price qty 1 (USD)": 5.0,
+   "Unit price qty 1 (USD)": 4.08,
    "Unit price qty 100 (USD)": 3.4
   },
   {
@@ -140,7 +140,7 @@
    "Rating": "20 V in",
    "Manufacturer": "Analog Devices",
    "MPN": "LT3045EMSE#PBF",
-   "Unit price qty 1 (USD)": 4.21,
+   "Unit price qty 1 (USD)": 10.0,
    "Unit price qty 100 (USD)": 3.1
   },
   {
@@ -153,7 +153,7 @@
    "Rating": "2.7–5.4 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "THS4551IRGTR",
-   "Unit price qty 1 (USD)": 4.2,
+   "Unit price qty 1 (USD)": 5.96,
    "Unit price qty 100 (USD)": 2.9
   },
   {
@@ -166,7 +166,7 @@
    "Rating": "1.71–3.6 V",
    "Manufacturer": "STMicroelectronics",
    "MPN": "LSM6DSMTR",
-   "Unit price qty 1 (USD)": 4.0,
+   "Unit price qty 1 (USD)": 4.29,
    "Unit price qty 100 (USD)": 2.7
   },
   {
@@ -179,7 +179,7 @@
    "Rating": "-",
    "Manufacturer": "Antenova",
    "MPN": "SR4G013",
-   "Unit price qty 1 (USD)": 3.6,
+   "Unit price qty 1 (USD)": 3.82,
    "Unit price qty 100 (USD)": 2.4
   },
   {
@@ -192,7 +192,7 @@
    "Rating": "VDD 10–20 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "UCC27714D",
-   "Unit price qty 1 (USD)": 3.3,
+   "Unit price qty 1 (USD)": 4.16,
    "Unit price qty 100 (USD)": 2.2
   },
   {
@@ -205,7 +205,7 @@
    "Rating": "1.8–5.5 V in",
    "Manufacturer": "Texas Instruments",
    "MPN": "TPS63001DRCR",
-   "Unit price qty 1 (USD)": 3.2,
+   "Unit price qty 1 (USD)": 2.74,
    "Unit price qty 100 (USD)": 2.1
   },
   {
@@ -218,7 +218,7 @@
    "Rating": "2.7–5.5 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "TLV3501AIDBVR",
-   "Unit price qty 1 (USD)": 3.1,
+   "Unit price qty 1 (USD)": 4.34,
    "Unit price qty 100 (USD)": 2.1
   },
   {
@@ -231,7 +231,7 @@
    "Rating": "2.7–5.5 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "TLV3501AIDBVR",
-   "Unit price qty 1 (USD)": 3.1,
+   "Unit price qty 1 (USD)": 4.34,
    "Unit price qty 100 (USD)": 2.1
   },
   {
@@ -244,7 +244,7 @@
    "Rating": "2.7–20 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "INA241A2IDGKR",
-   "Unit price qty 1 (USD)": 2.6,
+   "Unit price qty 1 (USD)": 3.56,
    "Unit price qty 100 (USD)": 1.8
   },
   {
@@ -257,7 +257,7 @@
    "Rating": "4.35–6.6 V in",
    "Manufacturer": "Texas Instruments",
    "MPN": "BQ24075RGTR",
-   "Unit price qty 1 (USD)": 2.4,
+   "Unit price qty 1 (USD)": 2.43,
    "Unit price qty 100 (USD)": 1.6
   },
   {
@@ -270,7 +270,7 @@
    "Rating": "±2.25 to ±18 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "OPA1656IDR",
-   "Unit price qty 1 (USD)": 2.3,
+   "Unit price qty 1 (USD)": 2.99,
    "Unit price qty 100 (USD)": 1.55
   },
   {
@@ -283,7 +283,7 @@
    "Rating": "2.5–5.5 V",
    "Manufacturer": "Texas Instruments",
    "MPN": "TPA6132A2RTER",
-   "Unit price qty 1 (USD)": 2.0,
+   "Unit price qty 1 (USD)": 1.1,
    "Unit price qty 100 (USD)": 1.3
   },
   {
@@ -296,7 +296,7 @@
    "Rating": "2.5–5.5 V",
    "Manufacturer": "Diodes Inc.",
    "MPN": "PAM8302AADCR",
-   "Unit price qty 1 (USD)": 0.9,
+   "Unit price qty 1 (USD)": 0.67,
    "Unit price qty 100 (USD)": 0.55
   },
   {
@@ -309,7 +309,7 @@
    "Rating": "1.6–6 V in",
    "Manufacturer": "Texas Instruments",
    "MPN": "LP5907MFX-3.3/NOPB",
-   "Unit price qty 1 (USD)": 0.7,
+   "Unit price qty 1 (USD)": 0.66,
    "Unit price qty 100 (USD)": 0.4
   },
   {
@@ -322,7 +322,7 @@
    "Rating": "BAT_IN 3.2-4.2 V",
    "Manufacturer": "Microchip",
    "MPN": "BM83SM1-00AA",
-   "Unit price qty 1 (USD)": 12.9,
+   "Unit price qty 1 (USD)": 13.18,
    "Unit price qty 100 (USD)": 9.5
   },
   {
@@ -335,7 +335,7 @@
    "Rating": "1.7–3.6 V",
    "Manufacturer": "u-blox",
    "MPN": "MAX-M10S-00B",
-   "Unit price qty 1 (USD)": 10.05,
+   "Unit price qty 1 (USD)": 11.42,
    "Unit price qty 100 (USD)": 8.2
   },
   {
@@ -348,7 +348,7 @@
    "Rating": "200 V, 36 A, Qg 22 nC",
    "Manufacturer": "Infineon",
    "MPN": "BSC320N20NS3GATMA1",
-   "Unit price qty 1 (USD)": 1.85,
+   "Unit price qty 1 (USD)": 3.78,
    "Unit price qty 100 (USD)": 1.2
   },
   {
@@ -361,7 +361,7 @@
    "Rating": "150 V, 50 A, Qg 30 nC",
    "Manufacturer": "Infineon",
    "MPN": "BSC190N15NS3GATMA1",
-   "Unit price qty 1 (USD)": 1.6,
+   "Unit price qty 1 (USD)": 3.47,
    "Unit price qty 100 (USD)": 1.05
   },
   {
@@ -374,7 +374,7 @@
    "Rating": "60 V, 30 A",
    "Manufacturer": "Vishay Siliconix",
    "MPN": "SIR626DP-T1-RE3",
-   "Unit price qty 1 (USD)": 1.55,
+   "Unit price qty 1 (USD)": 3.51,
    "Unit price qty 100 (USD)": 0.95
   },
   {
@@ -387,7 +387,7 @@
    "Rating": "600 V, 50 mA, 80 ohm",
    "Manufacturer": "Diodes Incorporated",
    "MPN": "BSS127S-7",
-   "Unit price qty 1 (USD)": 0.3,
+   "Unit price qty 1 (USD)": 0.39,
    "Unit price qty 100 (USD)": 0.18
   },
   {
@@ -400,7 +400,7 @@
    "Rating": "60 V, 300 mA",
    "Manufacturer": "onsemi",
    "MPN": "2N7002ET1G",
-   "Unit price qty 1 (USD)": 0.05,
+   "Unit price qty 1 (USD)": 0.23,
    "Unit price qty 100 (USD)": 0.02
   },
   {
@@ -413,7 +413,7 @@
    "Rating": "150 V, 2 A",
    "Manufacturer": "STMicroelectronics",
    "MPN": "STPS2150A",
-   "Unit price qty 1 (USD)": 0.55,
+   "Unit price qty 1 (USD)": 0.58,
    "Unit price qty 100 (USD)": 0.3
   },
   {
@@ -426,7 +426,7 @@
    "Rating": "60 V, 5 A",
    "Manufacturer": "Diodes Inc.",
    "MPN": "B560C-13-F",
-   "Unit price qty 1 (USD)": 0.45,
+   "Unit price qty 1 (USD)": 0.91,
    "Unit price qty 100 (USD)": 0.25
   },
   {
@@ -439,7 +439,7 @@
    "Rating": "5 V, 400 W",
    "Manufacturer": "Littelfuse",
    "MPN": "SMAJ5.0A-E3/61",
-   "Unit price qty 1 (USD)": 0.25,
+   "Unit price qty 1 (USD)": 0.5,
    "Unit price qty 100 (USD)": 0.12
   },
   {
@@ -452,7 +452,7 @@
    "Rating": "200 V, 1 A, 50 ns",
    "Manufacturer": "Vishay",
    "MPN": "US1D-E3/61T",
-   "Unit price qty 1 (USD)": 0.25,
+   "Unit price qty 1 (USD)": 0.6,
    "Unit price qty 100 (USD)": 0.12
   },
   {
@@ -465,7 +465,7 @@
    "Rating": "40 V, 3 A",
    "Manufacturer": "Vishay",
    "MPN": "SS34-E3/57T",
-   "Unit price qty 1 (USD)": 0.22,
+   "Unit price qty 1 (USD)": 1.02,
    "Unit price qty 100 (USD)": 0.12
   },
   {
@@ -478,7 +478,7 @@
    "Rating": "85 V, 215 mA, 5 nA max, 3 pA typ",
    "Manufacturer": "Diodes Incorporated",
    "MPN": "BAS116-7-F",
-   "Unit price qty 1 (USD)": 0.13,
+   "Unit price qty 1 (USD)": 0.23,
    "Unit price qty 100 (USD)": 0.06
   },
   {
@@ -491,7 +491,7 @@
    "Rating": "30 V, 200 mA",
    "Manufacturer": "Vishay",
    "MPN": "BAT54WS-E3-08",
-   "Unit price qty 1 (USD)": 0.08,
+   "Unit price qty 1 (USD)": 0.46,
    "Unit price qty 100 (USD)": 0.03
   },
   {
@@ -504,7 +504,7 @@
    "Rating": "22 µH, 5.5 A sat",
    "Manufacturer": "Coilcraft",
    "MPN": "XAL7050-223MEC",
-   "Unit price qty 1 (USD)": 1.9,
+   "Unit price qty 1 (USD)": 3.44,
    "Unit price qty 100 (USD)": 1.25
   },
   {
@@ -517,7 +517,7 @@
    "Rating": "47 µH, 3.9 A sat",
    "Manufacturer": "Coilcraft",
    "MPN": "XAL7050-473MEC",
-   "Unit price qty 1 (USD)": 1.9,
+   "Unit price qty 1 (USD)": 3.44,
    "Unit price qty 100 (USD)": 1.25
   },
   {
@@ -530,7 +530,7 @@
    "Rating": "1.5 µH, 5.4 A sat",
    "Manufacturer": "Coilcraft",
    "MPN": "XAL4020-152MEC",
-   "Unit price qty 1 (USD)": 0.85,
+   "Unit price qty 1 (USD)": 2.25,
    "Unit price qty 100 (USD)": 0.55
   },
   {
@@ -543,7 +543,7 @@
    "Rating": "4.7 µH, 3.2 A sat",
    "Manufacturer": "Coilcraft",
    "MPN": "XAL4030-472MEC",
-   "Unit price qty 1 (USD)": 0.85,
+   "Unit price qty 1 (USD)": 2.31,
    "Unit price qty 100 (USD)": 0.55
   },
   {
@@ -556,7 +556,7 @@
    "Rating": "1.3 A",
    "Manufacturer": "Murata",
    "MPN": "BLM18KG601SN1D",
-   "Unit price qty 1 (USD)": 0.08,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.03
   },
   {
@@ -582,7 +582,7 @@
    "Rating": "7 pF",
    "Manufacturer": "Abracon",
    "MPN": "ABS07-32.768KHZ-7-T",
-   "Unit price qty 1 (USD)": 0.55,
+   "Unit price qty 1 (USD)": 0.86,
    "Unit price qty 100 (USD)": 0.3
   },
   {
@@ -595,7 +595,7 @@
    "Rating": "250 V, X7T",
    "Manufacturer": "TDK",
    "MPN": "C5750X7T2E225K250KA",
-   "Unit price qty 1 (USD)": 2.1,
+   "Unit price qty 1 (USD)": 3.25,
    "Unit price qty 100 (USD)": 1.35
   },
   {
@@ -608,7 +608,7 @@
    "Rating": "160 V, low-Z",
    "Manufacturer": "Rubycon",
    "MPN": "160PK47MEFC10X20",
-   "Unit price qty 1 (USD)": 1.05,
+   "Unit price qty 1 (USD)": 0.83,
    "Unit price qty 100 (USD)": 0.58
   },
   {
@@ -621,7 +621,7 @@
    "Rating": "50 V",
    "Manufacturer": "Panasonic",
    "MPN": "EEU-FC1H101",
-   "Unit price qty 1 (USD)": 0.45,
+   "Unit price qty 1 (USD)": 0.77,
    "Unit price qty 100 (USD)": 0.25
   },
   {
@@ -634,7 +634,7 @@
    "Rating": "50 V, X7R, 10 %",
    "Manufacturer": "Samsung Electro-Mechanics",
    "MPN": "CL32B106KBJNNWE",
-   "Unit price qty 1 (USD)": 0.35,
+   "Unit price qty 1 (USD)": 0.75,
    "Unit price qty 100 (USD)": 0.18
   },
   {
@@ -647,7 +647,7 @@
    "Rating": "16 V, film",
    "Manufacturer": "KYOCERA AVX",
    "MPN": "12103C105KAT2A",
-   "Unit price qty 1 (USD)": 0.35,
+   "Unit price qty 1 (USD)": 0.65,
    "Unit price qty 100 (USD)": 0.22
   },
   {
@@ -660,7 +660,7 @@
    "Rating": "50 V, X7R, 10 %",
    "Manufacturer": "Samsung Electro-Mechanics",
    "MPN": "CL32B475KBUYNNE",
-   "Unit price qty 1 (USD)": 0.3,
+   "Unit price qty 1 (USD)": 0.49,
    "Unit price qty 100 (USD)": 0.15
   },
   {
@@ -673,7 +673,7 @@
    "Rating": "25 V, X5R, 10 %",
    "Manufacturer": "Samsung Electro-Mechanics",
    "MPN": "CL32A226KAJNNWE",
-   "Unit price qty 1 (USD)": 0.28,
+   "Unit price qty 1 (USD)": 0.83,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -686,7 +686,7 @@
    "Rating": "250 V, C0G, 5 %",
    "Manufacturer": "Vishay",
    "MPN": "VPDD202W102K1GV001E",
-   "Unit price qty 1 (USD)": 0.2,
+   "Unit price qty 1 (USD)": 0.19,
    "Unit price qty 100 (USD)": 0.1
   },
   {
@@ -699,7 +699,7 @@
    "Rating": "25 V, X5R, 10 %",
    "Manufacturer": "TDK",
    "MPN": "C2012X5R1V106K085AC",
-   "Unit price qty 1 (USD)": 0.12,
+   "Unit price qty 1 (USD)": 0.48,
    "Unit price qty 100 (USD)": 0.06
   },
   {
@@ -712,7 +712,7 @@
    "Rating": "250 V, X7R, 10 %",
    "Manufacturer": "Murata",
    "MPN": "GRM31CR72E104KW03L",
-   "Unit price qty 1 (USD)": 0.18,
+   "Unit price qty 1 (USD)": 0.55,
    "Unit price qty 100 (USD)": 0.09
   },
   {
@@ -725,7 +725,7 @@
    "Rating": "6.3 V, X5R, 20 %",
    "Manufacturer": "TDK",
    "MPN": "C2012X5R0J226M085AB",
-   "Unit price qty 1 (USD)": 0.09,
+   "Unit price qty 1 (USD)": 0.45,
    "Unit price qty 100 (USD)": 0.045
   },
   {
@@ -738,7 +738,7 @@
    "Rating": "25 V, X5R, 10 %",
    "Manufacturer": "TDK",
    "MPN": "C2012X5R1E475K125AB",
-   "Unit price qty 1 (USD)": 0.08,
+   "Unit price qty 1 (USD)": 0.28,
    "Unit price qty 100 (USD)": 0.04
   },
   {
@@ -751,7 +751,7 @@
    "Rating": "10 V, X5R, 10 %",
    "Manufacturer": "Samsung Electro-Mechanics",
    "MPN": "CL21A106KPFNNNG",
-   "Unit price qty 1 (USD)": 0.06,
+   "Unit price qty 1 (USD)": 0.069,
    "Unit price qty 100 (USD)": 0.03
   },
   {
@@ -764,7 +764,7 @@
    "Rating": "10 V, X5R, 10 %",
    "Manufacturer": "Samsung Electro-Mechanics",
    "MPN": "CL21A106KPFNNNG",
-   "Unit price qty 1 (USD)": 0.06,
+   "Unit price qty 1 (USD)": 0.069,
    "Unit price qty 100 (USD)": 0.03
   },
   {
@@ -777,7 +777,7 @@
    "Rating": "50 V, C0G, 5 %",
    "Manufacturer": "Murata",
    "MPN": "GRM1555C1H100JA01D",
-   "Unit price qty 1 (USD)": 0.03,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -790,7 +790,7 @@
    "Rating": "50 V, C0G, ±0.5 pF",
    "Manufacturer": "Murata",
    "MPN": "GRM1555C1H6R8DA01D",
-   "Unit price qty 1 (USD)": 0.03,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -803,7 +803,7 @@
    "Rating": "50 V X7R, 10 %",
    "Manufacturer": "TDK",
    "MPN": "C1005C0G1H102J050BA",
-   "Unit price qty 1 (USD)": 0.03,
+   "Unit price qty 1 (USD)": 0.14,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -816,7 +816,7 @@
    "Rating": "50 V, C0G, 5 %",
    "Manufacturer": "Murata",
    "MPN": "GRM1555C1H331JA01D",
-   "Unit price qty 1 (USD)": 0.03,
+   "Unit price qty 1 (USD)": 0.048,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -829,7 +829,7 @@
    "Rating": "50 V, C0G, 5 %",
    "Manufacturer": "Murata",
    "MPN": "GRM1555C1H332JE01D",
-   "Unit price qty 1 (USD)": 0.03,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -842,7 +842,7 @@
    "Rating": "50 V X7R, 10 %",
    "Manufacturer": "Murata",
    "MPN": "GRM155R71H472KA01D",
-   "Unit price qty 1 (USD)": 0.03,
+   "Unit price qty 1 (USD)": 0.02,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -855,7 +855,7 @@
    "Rating": "50 V X7R, 10 %",
    "Manufacturer": "Murata",
    "MPN": "GRM155R71H472KA01D",
-   "Unit price qty 1 (USD)": 0.03,
+   "Unit price qty 1 (USD)": 0.02,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -868,7 +868,7 @@
    "Rating": "50 V, C0G, 5 %",
    "Manufacturer": "Murata",
    "MPN": "GRM1555C1H681JA01D",
-   "Unit price qty 1 (USD)": 0.03,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -881,7 +881,7 @@
    "Rating": "25 V X5R, 10 %",
    "Manufacturer": "KYOCERA AVX",
    "MPN": "06033D105KAT2A",
-   "Unit price qty 1 (USD)": 0.025,
+   "Unit price qty 1 (USD)": 0.08,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -894,7 +894,7 @@
    "Rating": "25 V X5R, 10 %",
    "Manufacturer": "KYOCERA AVX",
    "MPN": "06033D105KAT2A",
-   "Unit price qty 1 (USD)": 0.025,
+   "Unit price qty 1 (USD)": 0.08,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -907,7 +907,7 @@
    "Rating": "50 V X7R, 10 %",
    "Manufacturer": "Murata",
    "MPN": "GRM188R71H224KAC4D",
-   "Unit price qty 1 (USD)": 0.025,
+   "Unit price qty 1 (USD)": 0.15,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -920,7 +920,7 @@
    "Rating": "25 V X5R, 10 %",
    "Manufacturer": "Murata",
    "MPN": "GRM188R61E225KA12D",
-   "Unit price qty 1 (USD)": 0.025,
+   "Unit price qty 1 (USD)": 0.052,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -931,9 +931,9 @@
    "Description": "4.7 µF MLCC, 10 V X5R, 10 %",
    "Package": "0603",
    "Rating": "10 V X5R, 10 %",
-   "Manufacturer": "Murata",
-   "MPN": "GRM188R61A475KE15D",
-   "Unit price qty 1 (USD)": 0.025,
+   "Manufacturer": "Taiyo Yuden",
+   "MPN": "LMK107BJ475KA-T",
+   "Unit price qty 1 (USD)": 0.088,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -944,9 +944,9 @@
    "Description": "4.7 µF MLCC, 10 V X5R, 10 %",
    "Package": "0603",
    "Rating": "10 V X5R, 10 %",
-   "Manufacturer": "Murata",
-   "MPN": "GRM188R61A475KE15D",
-   "Unit price qty 1 (USD)": 0.025,
+   "Manufacturer": "Taiyo Yuden",
+   "MPN": "LMK107BJ475KA-T",
+   "Unit price qty 1 (USD)": 0.088,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -959,7 +959,7 @@
    "Rating": "50 V X7R, 10 %",
    "Manufacturer": "Murata",
    "MPN": "GRM155R71H104KE14D",
-   "Unit price qty 1 (USD)": 0.012,
+   "Unit price qty 1 (USD)": 0.017,
    "Unit price qty 100 (USD)": 0.006
   },
   {
@@ -972,7 +972,7 @@
    "Rating": "50 V X7R, 10 %",
    "Manufacturer": "Murata",
    "MPN": "GRM155R71H103KA88D",
-   "Unit price qty 1 (USD)": 0.012,
+   "Unit price qty 1 (USD)": 0.022,
    "Unit price qty 100 (USD)": 0.006
   },
   {
@@ -985,7 +985,7 @@
    "Rating": "50 V X7R, 10 %",
    "Manufacturer": "Murata",
    "MPN": "GRM155R71H103KA88D",
-   "Unit price qty 1 (USD)": 0.012,
+   "Unit price qty 1 (USD)": 0.022,
    "Unit price qty 100 (USD)": 0.006
   },
   {
@@ -998,7 +998,7 @@
    "Rating": "10 V X5R, 10 %",
    "Manufacturer": "Samsung Electro-Mechanics",
    "MPN": "CL05A105KP5NNNC",
-   "Unit price qty 1 (USD)": 0.012,
+   "Unit price qty 1 (USD)": 0.028,
    "Unit price qty 100 (USD)": 0.006
   },
   {
@@ -1011,7 +1011,7 @@
    "Rating": "10 V X5R, 10 %",
    "Manufacturer": "Samsung Electro-Mechanics",
    "MPN": "CL05A224KP5NNNC",
-   "Unit price qty 1 (USD)": 0.012,
+   "Unit price qty 1 (USD)": 0.048,
    "Unit price qty 100 (USD)": 0.006
   },
   {
@@ -1024,7 +1024,7 @@
    "Rating": "1 W, 1 %, 75 ppm",
    "Manufacturer": "Vishay Dale",
    "MPN": "WSL2512R0200FEA",
-   "Unit price qty 1 (USD)": 0.95,
+   "Unit price qty 1 (USD)": 0.7,
    "Unit price qty 100 (USD)": 0.55
   },
   {
@@ -1037,7 +1037,7 @@
    "Rating": "0.5 W, 1 %",
    "Manufacturer": "Vishay Dale",
    "MPN": "WSL1206R0100FEA",
-   "Unit price qty 1 (USD)": 0.55,
+   "Unit price qty 1 (USD)": 0.75,
    "Unit price qty 100 (USD)": 0.32
   },
   {
@@ -1050,7 +1050,7 @@
    "Rating": "0.5 W, 1 %",
    "Manufacturer": "Vishay Dale",
    "MPN": "WSL1206R0200FEA",
-   "Unit price qty 1 (USD)": 0.55,
+   "Unit price qty 1 (USD)": 0.73,
    "Unit price qty 100 (USD)": 0.32
   },
   {
@@ -1063,7 +1063,7 @@
    "Rating": "0.5 W, 1 %",
    "Manufacturer": "Vishay Dale",
    "MPN": "WSL1206R0500FEA",
-   "Unit price qty 1 (USD)": 0.55,
+   "Unit price qty 1 (USD)": 0.93,
    "Unit price qty 100 (USD)": 0.32
   },
   {
@@ -1076,7 +1076,7 @@
    "Rating": "1/16 W, 0.1 %, 25 ppm",
    "Manufacturer": "Panasonic",
    "MPN": "ERA-2AEB1050X",
-   "Unit price qty 1 (USD)": 0.32,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1089,7 +1089,7 @@
    "Rating": "1/16 W, 0.1 %, 25 ppm",
    "Manufacturer": "Panasonic",
    "MPN": "ERA-2VEB1002X",
-   "Unit price qty 1 (USD)": 0.32,
+   "Unit price qty 1 (USD)": 0.29,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1102,7 +1102,7 @@
    "Rating": "1/16 W, 0.1 %, 25 ppm",
    "Manufacturer": "Panasonic",
    "MPN": "ERA-2VEB1001X",
-   "Unit price qty 1 (USD)": 0.32,
+   "Unit price qty 1 (USD)": 0.255,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1115,7 +1115,7 @@
    "Rating": "1/16 W, 0.1 %, 25 ppm",
    "Manufacturer": "Panasonic",
    "MPN": "ERA-2AEB4992X",
-   "Unit price qty 1 (USD)": 0.32,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1128,7 +1128,7 @@
    "Rating": "1/16 W, 0.1 %, 25 ppm",
    "Manufacturer": "Panasonic",
    "MPN": "ERA-2AEB5111X",
-   "Unit price qty 1 (USD)": 0.32,
+   "Unit price qty 1 (USD)": 0.12,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1141,7 +1141,7 @@
    "Rating": "1 W, 1 %",
    "Manufacturer": "Bourns",
    "MPN": "CR2512-FX-1002ELF",
-   "Unit price qty 1 (USD)": 0.15,
+   "Unit price qty 1 (USD)": 0.31,
    "Unit price qty 100 (USD)": 0.06
   },
   {
@@ -1154,7 +1154,7 @@
    "Rating": "1 W, 1 %",
    "Manufacturer": "Vishay Dale",
    "MPN": "CRCW251247R0FKEG",
-   "Unit price qty 1 (USD)": 0.15,
+   "Unit price qty 1 (USD)": 0.28,
    "Unit price qty 100 (USD)": 0.06
   },
   {
@@ -1167,7 +1167,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07100RL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1180,7 +1180,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07100RL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1193,7 +1193,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07100KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1206,7 +1206,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07100KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1219,7 +1219,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07100KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1232,7 +1232,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07100KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1245,7 +1245,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0710RL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.026,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1258,7 +1258,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0710RL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.026,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1271,7 +1271,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0710KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1284,7 +1284,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0710KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1297,7 +1297,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0710KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1310,7 +1310,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07113KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1323,7 +1323,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07140KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1336,7 +1336,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-071ML",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1349,7 +1349,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-071KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1362,7 +1362,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-071K1L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1375,7 +1375,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0720KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1388,7 +1388,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0722RL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1401,7 +1401,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0722KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1414,7 +1414,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0733RL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1427,7 +1427,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Bourns",
    "MPN": "CR0402-FX-4022GLF",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1440,7 +1440,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0741K2L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1453,7 +1453,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07442KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1466,7 +1466,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Bourns",
    "MPN": "CR0402-FX-47R0GLF",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1479,7 +1479,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0747KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1492,7 +1492,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0747KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1505,7 +1505,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07499KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1518,7 +1518,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-074R7L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.026,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1531,7 +1531,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-074K7L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1544,7 +1544,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-074K7L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1557,7 +1557,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-075K1L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1570,7 +1570,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0760K4L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1583,7 +1583,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07619KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1596,7 +1596,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-0766K5L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1609,7 +1609,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-07887RL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.1,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1622,7 +1622,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-079K1L",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.11,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1635,7 +1635,7 @@
    "Rating": "1/16 W",
    "Manufacturer": "Yageo",
    "MPN": "RC0402JR-070RL",
-   "Unit price qty 1 (USD)": 0.006,
+   "Unit price qty 1 (USD)": 0.01,
    "Unit price qty 100 (USD)": 0.002
   },
   {
@@ -1648,7 +1648,7 @@
    "Rating": "1/16 W",
    "Manufacturer": "Yageo",
    "MPN": "RC0402JR-070RL",
-   "Unit price qty 1 (USD)": 0.006,
+   "Unit price qty 1 (USD)": 0.01,
    "Unit price qty 100 (USD)": 0.002
   },
   {
@@ -1661,7 +1661,7 @@
    "Rating": "-",
    "Manufacturer": "Samtec",
    "MPN": "FTSH-105-01-L-DV-K",
-   "Unit price qty 1 (USD)": 2.6,
+   "Unit price qty 1 (USD)": 1.37,
    "Unit price qty 100 (USD)": 1.8
   },
   {
@@ -1674,7 +1674,7 @@
    "Rating": "-",
    "Manufacturer": "Hirose",
    "MPN": "DM3AT-SF-PEJM5",
-   "Unit price qty 1 (USD)": 1.85,
+   "Unit price qty 1 (USD)": 3.55,
    "Unit price qty 100 (USD)": 1.2
   },
   {
@@ -1687,7 +1687,7 @@
    "Rating": "-",
    "Manufacturer": "Hirose",
    "MPN": "FH12-20S-0.5SH(55)",
-   "Unit price qty 1 (USD)": 1.25,
+   "Unit price qty 1 (USD)": 2.19,
    "Unit price qty 100 (USD)": 0.72
   },
   {
@@ -1700,7 +1700,7 @@
    "Rating": "3 A",
    "Manufacturer": "GCT",
    "MPN": "USB4085-GF-A",
-   "Unit price qty 1 (USD)": 0.95,
+   "Unit price qty 1 (USD)": 0.91,
    "Unit price qty 100 (USD)": 0.6
   },
   {
@@ -1713,7 +1713,7 @@
    "Rating": "-",
    "Manufacturer": "CUI Devices",
    "MPN": "SJ-3523-SMT-TR",
-   "Unit price qty 1 (USD)": 0.75,
+   "Unit price qty 1 (USD)": 0.88,
    "Unit price qty 100 (USD)": 0.45
   },
   {
@@ -1739,7 +1739,7 @@
    "Rating": "5 V, 6 pF",
    "Manufacturer": "STMicroelectronics",
    "MPN": "USBLC6-2SC6",
-   "Unit price qty 1 (USD)": 0.35,
+   "Unit price qty 1 (USD)": 0.49,
    "Unit price qty 100 (USD)": 0.18
   },
   {
@@ -1752,7 +1752,7 @@
    "Rating": "2 A",
    "Manufacturer": "JST",
    "MPN": "B3B-PH-K-S",
-   "Unit price qty 1 (USD)": 0.15,
+   "Unit price qty 1 (USD)": 0.16,
    "Unit price qty 100 (USD)": 0.08
   },
   {
@@ -1778,7 +1778,7 @@
    "Rating": "2.0 V, 20 mA",
    "Manufacturer": "Kingbright",
    "MPN": "APT1608SYCK",
-   "Unit price qty 1 (USD)": 0.12,
+   "Unit price qty 1 (USD)": 0.21,
    "Unit price qty 100 (USD)": 0.05
   },
   {
@@ -1791,7 +1791,7 @@
    "Rating": "2.1 V, 20 mA",
    "Manufacturer": "Kingbright",
    "MPN": "APT1608SGC",
-   "Unit price qty 1 (USD)": 0.12,
+   "Unit price qty 1 (USD)": 0.19,
    "Unit price qty 100 (USD)": 0.05
   },
   {
@@ -1804,7 +1804,7 @@
    "Rating": "25 V X5R, 10 %",
    "Manufacturer": "KYOCERA AVX",
    "MPN": "06033D105KAT2A",
-   "Unit price qty 1 (USD)": 0.025,
+   "Unit price qty 1 (USD)": 0.08,
    "Unit price qty 100 (USD)": 0.012
   },
   {
@@ -1817,7 +1817,7 @@
    "Rating": "1/16 W, 1 %, 100 ppm",
    "Manufacturer": "Yageo",
    "MPN": "RC0402FR-071KL",
-   "Unit price qty 1 (USD)": 0.008,
+   "Unit price qty 1 (USD)": 0.021,
    "Unit price qty 100 (USD)": 0.003
   },
   {
@@ -1830,7 +1830,7 @@
    "Rating": "-",
    "Manufacturer": "Hirose",
    "MPN": "FH12-20S-0.5SH(55)",
-   "Unit price qty 1 (USD)": 1.25,
+   "Unit price qty 1 (USD)": 2.19,
    "Unit price qty 100 (USD)": 0.72
   },
   {
@@ -1843,7 +1843,7 @@
    "Rating": "-",
    "Manufacturer": "Hirose",
    "MPN": "FH12-10S-0.5SH(55)",
-   "Unit price qty 1 (USD)": 0.85,
+   "Unit price qty 1 (USD)": 1.75,
    "Unit price qty 100 (USD)": 0.5
   },
   {
@@ -1869,7 +1869,7 @@
    "Rating": "50 mA",
    "Manufacturer": "C&K",
    "MPN": "PTS645SK43SMTR92 LFS",
-   "Unit price qty 1 (USD)": 0.28,
+   "Unit price qty 1 (USD)": 0.36,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1882,7 +1882,7 @@
    "Rating": "50 mA",
    "Manufacturer": "C&K",
    "MPN": "PTS645SK43SMTR92 LFS",
-   "Unit price qty 1 (USD)": 0.28,
+   "Unit price qty 1 (USD)": 0.36,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1895,7 +1895,7 @@
    "Rating": "50 mA",
    "Manufacturer": "C&K",
    "MPN": "PTS645SK43SMTR92 LFS",
-   "Unit price qty 1 (USD)": 0.28,
+   "Unit price qty 1 (USD)": 0.36,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1908,7 +1908,7 @@
    "Rating": "50 mA",
    "Manufacturer": "C&K",
    "MPN": "PTS645SK43SMTR92 LFS",
-   "Unit price qty 1 (USD)": 0.28,
+   "Unit price qty 1 (USD)": 0.36,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1921,7 +1921,7 @@
    "Rating": "50 mA",
    "Manufacturer": "C&K",
    "MPN": "PTS645SK43SMTR92 LFS",
-   "Unit price qty 1 (USD)": 0.28,
+   "Unit price qty 1 (USD)": 0.36,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1934,7 +1934,7 @@
    "Rating": "50 mA",
    "Manufacturer": "C&K",
    "MPN": "PTS645SK43SMTR92 LFS",
-   "Unit price qty 1 (USD)": 0.28,
+   "Unit price qty 1 (USD)": 0.36,
    "Unit price qty 100 (USD)": 0.14
   },
   {
@@ -1947,7 +1947,7 @@
    "Rating": "50 mA",
    "Manufacturer": "C&K",
    "MPN": "PTS645SK43SMTR92 LFS",
-   "Unit price qty 1 (USD)": 0.28,
+   "Unit price qty 1 (USD)": 0.36,
    "Unit price qty 100 (USD)": 0.14
   }
  ],
@@ -2053,8 +2053,9 @@
    0
   ]
  ],
- "total1": 209.203,
+ "total1": 292.106,
  "total100": 139.797,
  "lines": 150,
- "parts": 317
+ "parts": 317,
+ "price_source": "qty-1 unit prices from distributor shopping carts (DigiKey/Mouser/Coilcraft), 2026-09-08; qty-100 remain catalogue-typical estimates; 6 parts not in the carts keep catalogue qty-1 (BQ27441, 16.384MHz xtal, coil header 61300611121, JST B2B-PH-K-S)"
 }
