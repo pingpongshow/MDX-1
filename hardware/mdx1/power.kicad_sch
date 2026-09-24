@@ -12248,7 +12248,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BQ27441-G1A"
+		(property "Value" "BQ27441DRZT-G1A"
 			(at -453.39 242.38 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13103,7 +13103,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TPS65131RGE"
+		(property "Value" "TPS65131RGET"
 			(at -370.84 374.46 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15532,7 +15532,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SiR626DP (60V)"
+		(property "Value" "SiR680ADP-T1-UE3"
 			(at -237.53 241.43 0)
 			(show_name no)
 			(do_not_autoplace no)

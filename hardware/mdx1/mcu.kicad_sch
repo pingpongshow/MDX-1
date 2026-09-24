@@ -6118,12 +6118,6 @@
 		(uuid "dfc95c58-8aaa-49fd-ba6c-4157000cad1d")
 	)
 	(junction
-		(at 314.96 153.67)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "eaf9dd26-12ed-4261-9ded-1e6d251462ce")
-	)
-	(junction
 		(at 307.34 153.67)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7543,16 +7537,6 @@
 	)
 	(wire
 		(pts
-			(xy 314.96 149.86) (xy 314.96 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a7dac200-f976-47f3-b434-97ac2aea591e")
-	)
-	(wire
-		(pts
 			(xy 443.23 307.34) (xy 440.69 307.34)
 		)
 		(stroke
@@ -7830,16 +7814,6 @@
 			(type default)
 		)
 		(uuid "d309b06e-7f6b-423a-9a03-03eb33dc2868")
-	)
-	(wire
-		(pts
-			(xy 314.96 142.24) (xy 314.96 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d8f09de1-1c5a-484b-911d-401b0992878f")
 	)
 	(wire
 		(pts
@@ -10553,95 +10527,6 @@
 			(project "mdx1"
 				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/7129f8c9-b0b9-4102-87e1-4f134a8471f6"
 					(reference "C119")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 314.96 146.05 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "07f3f776-b4ff-4c04-80f8-7848c754a8c1")
-		(property "Reference" "C126"
-			(at 312.36 146.05 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100n"
-			(at 318.36 146.05 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 314.96 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 314.96 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 314.96 146.05 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Attach" "U22:17"
-			(at 314.96 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4b0ffef2-19f5-4972-b53a-3688734b24cf")
-		)
-		(pin "2"
-			(uuid "addea8b6-5211-4c55-b0d7-0be3c8f44a37")
-		)
-		(instances
-			(project "mdx1"
-				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/7129f8c9-b0b9-4102-87e1-4f134a8471f6"
-					(reference "C126")
 					(unit 1)
 				)
 			)
@@ -16330,83 +16215,6 @@
 			(project "mcu"
 				(path "/c5e03598-e79c-4f98-a3df-249a9445301a"
 					(reference "R101")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "MDX_PWR:GND")
-		(at 314.96 139.7 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c4fd08f4-497d-4002-91c2-486c401d671b")
-		(property "Reference" "#PWR0412"
-			(at 314.96 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 314.96 135.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 314.96 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 314.96 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 314.96 139.7 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "274d135b-d0e4-4884-a6b2-8378f1e321fb")
-		)
-		(instances
-			(project "mdx1"
-				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/7129f8c9-b0b9-4102-87e1-4f134a8471f6"
-					(reference "#PWR0412")
 					(unit 1)
 				)
 			)

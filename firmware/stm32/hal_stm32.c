@@ -450,8 +450,11 @@ static void misc_init(void)
     huart4.Instance = UART4; huart4.Init.BaudRate = 9600; huart4.Init.WordLength = UART_WORDLENGTH_8B; huart4.Init.StopBits = UART_STOPBITS_1; huart4.Init.Parity = UART_PARITY_NONE; huart4.Init.Mode = UART_MODE_TX_RX; HAL_UART_Init(&huart4);
     huart1.Instance = USART1; huart1.Init.BaudRate = 115200; huart1.Init.WordLength = UART_WORDLENGTH_8B; huart1.Init.StopBits = UART_STOPBITS_1; huart1.Init.Parity = UART_PARITY_NONE; huart1.Init.Mode = UART_MODE_TX_RX; HAL_UART_Init(&huart1);
     bm83_init();                      /* power up the Bluetooth module and start BLE advertising */
-    /* IMU: 104 Hz, +-500 dps, +-4 g */
-    i2c_wr(0x6A, 0x10, 0x48); i2c_wr(0x6A, 0x11, 0x44);
+    /* IMU LSM6DSO32 (WHO_AM_I 0x6C): 104 Hz, +-500 dps, +-4 g.
+     * NB: FS_XL encoding differs from the LSM6DSM - on the DSO32, CTRL1_XL FS_XL 00 = +-4 g
+     * (DSM used 10 = +-4 g). CTRL2_G is unchanged (01 = +-500 dps). Scaling in hal_imu_read
+     * stays +-4 g / +-500 dps. */
+    i2c_wr(0x6A, 0x10, 0x40); i2c_wr(0x6A, 0x11, 0x44);
     HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);      /* LCD DISP on */
     (void)hsai_a; (void)hsd1;
 }

@@ -23,7 +23,7 @@
 /* ADC scaling: 24-bit two's complement, +-2.5 V differential full scale */
 #define MDX_ADC_V_PER_CODE   (2.5f / 8388608.0f)
 #define MDX_RX_GAIN          20.0f                 /* OPA1612 in-amp differential gain            */
-#define MDX_ITX_V_PER_A      0.4f                  /* INA241A2 (20 V/V) x 20 mOhm shunt           */
+#define MDX_ITX_V_PER_A      1.0f                  /* INA241A2 (50 V/V) x 20 mOhm shunt           */
 #define MDX_RX_V_PER_CODE    (MDX_ADC_V_PER_CODE / MDX_RX_GAIN)     /* coil volts per RX code    */
 #define MDX_ITX_A_PER_CODE   (MDX_ADC_V_PER_CODE / MDX_ITX_V_PER_A) /* amps per ITX code         */
 

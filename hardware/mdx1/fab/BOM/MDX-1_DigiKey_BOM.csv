@@ -1,0 +1,126 @@
+Quantity,Manufacturer Part Number,Manufacturer,Customer Reference,Description
+7,LMK107BJ475KA-T,Taiyo Yuden,C1/20/23/27/29/35/86,"4.7 µF MLCC, 10 V X5R, 10 %"
+13,CL21A106KPFNNNG,Samsung Electro-Mechanics,C2/3/6/9/26/68/69/76/84/97/111/112/113,10 µF 10 V X5R MLCC
+29,GRM155R71H104KE14D,Murata,C4/10/28/44/45/46/53/54/57/61/65/66/71/78/87/91/92/99/100/114/117/118/119/120/121/122/123/124/125,"100 nF MLCC, 50 V X7R, 10 %"
+24,06033D105KAT2A,KYOCERA AVX,C5/17/24/25/40/42/70/72/73/74/75/77/79/80/81/82/83/85/88/98/108/109/110/116,"1 µF MLCC, 25 V X5R, 10 %"
+2,C2012X5R0J226M085AB,TDK,C7/8,22 µF 6.3 V X5R MLCC
+4,CL05A224KP5NNNC,Samsung Electro-Mechanics,C11/34/104/105,"220 nF MLCC, 10 V X5R, 10 %"
+3,GRM155R71H103KA88D,Murata,C12/36/128,"10 nF MLCC, 50 V X7R, 10 %"
+3,GRM155R71H472KA01D,Murata,C13/30/101,"4.7 nF MLCC, 50 V X7R, 10 %"
+3,CL32A226KAJNNWE,Samsung Electro-Mechanics,C14/15/16,22 µF 25 V X5R MLCC
+2,C2012X5R1E475K125AB,TDK,C18/21,4.7 µF 25 V X5R MLCC
+2,C2012X5R1V106K085AC,TDK,C19/22,10 µF 25 V X5R MLCC
+1,EEU-FC1H101,Panasonic,C31,"100 µF 50 V aluminium electrolytic, low ESR, 105 °C"
+1,C1210C106K5RACTU,KEMET,C32,10 µF 50 V X7R MLCC
+1,GRM32ER71H475KA88L,Murata,C33,4.7 µF 50 V X7R MLCC
+1,160PK47MEFC10X20,Rubycon,C37,"47 uF 160 V aluminium electrolytic, low impedance, 105 C, 10x20 mm"
+3,C5750X7T2E225K250KE,TDK,C38/39/48,2.2 uF 250 V X7T MLCC (bridge rail)
+2,GRM188R71H224KAC4D,Murata,C41/43,"220 nF MLCC, 50 V X7R, 10 %"
+1,VPDD202W102K1GV001E,Vishay,C47,1 nF 250 V C0G MLCC (snubber)
+1,GRM31CR72E104KW03L,Murata,C49,100 nF 250 V X7R MLCC
+1,C1005C0G1H102J050BA,TDK,C50,"1 nF MLCC, 50 V X7R, 10 %"
+2,12103C105KAT2A,KYOCERA AVX,C51/52,"1 µF 16 V film (PPS) capacitor, low distortion"
+2,GRM1555C1H681JA01D,Murata,C55/56,"680 pF 50 V C0G MLCC, 5 %"
+2,GRM1555C1H332JE01D,Murata,C58/62,"3.3 nF 50 V C0G MLCC, 5 %"
+4,GRM1555C1H331JA01D,Murata,C59/60/63/64,"330 pF 50 V C0G MLCC, 5 %"
+3,CL05A105KP5NNNC,Samsung Electro-Mechanics,C67/102/103,"1 µF MLCC, 10 V X5R, 10 %"
+4,GRM188R61E225KA12D,Murata,C89/90/106/107,"2.2 µF MLCC, 25 V X5R, 10 %"
+2,GRM1555C1H100JA01D,Murata,C93/94,"10 pF 50 V C0G MLCC, 5 %"
+2,GRM1555C1H6R8DA01D,Murata,C95/96,"6.8 pF 50 V C0G MLCC, ±0.5 pF"
+1,GRM1555C1H330JA01D,Murata,C127,33 pF 50 V C0G 0402 (GNSS RF DC block)
+1,SMAJ5.0A-E3/61,Littelfuse,D1,5 V TVS 400 W
+2,SS34-E3/57T,Vishay,D2/3,40 V 3 A Schottky
+1,B560C-13-F,Diodes Inc.,D4,60 V 5 A Schottky
+1,STPS2150A,STMicroelectronics,D5,150 V 2 A Schottky
+2,US1D-E3/61T,Vishay,D6/7,200 V 1 A ultrafast diode (bootstrap)
+2,NSVBAT54SWT1G,onsemi,D8/9,"BAT54SW dual-series Schottky in SOT-23/SC-70 (SOT-323); use one diode (A=pin1, K=pin3, pin2 NC). FOOTPRINT CHANGE from SOD-323."
+4,BAS116-7-F,Diodes Incorporated,D10/11/12/13,"Low-leakage diode (RX clamp), SOT-23"
+1,APT1608SGC,Kingbright,D14,Green LED 0603
+1,APT1608SYCK,Kingbright,D15,Amber LED 0603
+1,PESD0402-140,Nexperia,D17,"Bidirectional ESD protection, 0402 (GNSS antenna) - VERIFY Vrwm >= 5 V vs 3.3 V bias"
+1,BLM18KG601SN1D,Murata,FB1,"Ferrite bead 600 Ω @ 100 MHz, 1.3 A"
+1,USB4085-GF-A,GCT,J1,"USB-C 2.0 receptacle, mid-mount"
+1,USBLC6-2SC6,STMicroelectronics,J2,USB 2.0 ESD protection array
+1,B3B-PH-K-S,JST,J3,JST PH 3-pin header
+1,61300611121,Wurth Elektronik,J4,"Pin header 1x06, 2.54 mm, vertical THT (coil pigtail to panel connector)"
+1,FTSH-105-01-L-DV-K,Samtec,J5,2x5 1.27 mm SWD header
+1,DM3AT-SF-PEJM5,Hirose,J6,microSD push-push socket with detect
+2,FH12-20S-0.5SH(55),Hirose,J7/10,20-pin 0.5 mm FFC connector (UI board link)
+1,SJ-3523-SMT-TR,CUI Devices,J8,3.5 mm stereo jack with switch
+2,B2B-PH-K-S,JST,J9/12,JST PH 2-pin header
+1,FH12-10S-0.5SH(55),Hirose,J11,10-pin 0.5 mm FFC connector
+1,73412-0110,Molex,J13,u.FL/IPEX RF connector for external GNSS antenna (replaces chip antenna; add bias-tee for active antenna)
+1,XAL4020-152MEC,Coilcraft,L1,1.5 µH 5.4 A power inductor
+2,XAL4030-472MEC,Coilcraft,L2/3,4.7 µH 3.2 A power inductor
+1,XAL7050-223MEC,Coilcraft,L4,22 µH 5.5 A power inductor
+1,XAL7050-473MEC,Coilcraft,L5,47 µH 3.9 A power inductor
+1,LQW15AN27NG00D,Murata,L8,27 nH 0402 wirewound RF inductor (GNSS bias feed)
+1,SIR680ADP-T1-UE3,Vishay Siliconix,Q1,"N-ch MOSFET, PowerPAK SO-8 (VERIFY 60 V + Qg/Rds vs gate drive)"
+1,BSC190N15NS3GATMA1,Infineon,Q2,150 V 19 mΩ N-MOSFET
+1,BSS127S-7,Diodes Incorporated,Q3,"600 V 50 mA N-MOSFET, SOT-23 (HV bleed)"
+4,BSC320N20NS3GATMA1,Infineon,Q4/5/6/7,200 V 32 mΩ N-MOSFET (H-bridge)
+1,2N7002ET1G,onsemi,Q8,60 V N-MOSFET (front-light switch)
+2,RC0402FR-075K1L,Yageo,R1/2,5.1 kΩ 1 % thick film resistor
+1,RC0402FR-071K1L,Yageo,R3,1.1 kΩ 1 % thick film resistor
+1,RC0402FR-07887RL,Yageo,R4,887 Ω 1 % thick film resistor
+7,RC0402FR-0747KL,Yageo,R5/17/36/101/102/103/104,47 kΩ 1 % thick film resistor
+16,RC0402FR-0710KL,Yageo,R6/10/11/16/19/37/49/50/53/54/60/64/89/94/98/200,10 kΩ 1 % thick film resistor
+16,RC0402FR-07100KL,Yageo,R7/8/14/15/24/46/69/70/90/91/92/95/96/97/107/110,100 kΩ 1 % thick film resistor
+1,WSL1206R0100FEA,Vishay Dale,R9,10 mΩ 1 % 0.5 W metal-strip current-sense resistor
+4,RC0402FR-074K7L,Yageo,R12/13/100/109,4.7 kΩ 1 % thick film resistor
+4,RC0402FR-0722KL,Yageo,R18/29/39/63,22 kΩ 1 % thick film resistor
+6,RC0402FR-07100RL,Yageo,R20/78/79/84/85/106,100 Ω 1 % thick film resistor
+4,RC0402FR-071ML,Yageo,R21/62/67/68,1 MΩ 1 % thick film resistor
+1,RC0402FR-07113KL,Yageo,R22,113 kΩ 1 % thick film resistor
+1,RC0402FR-07499KL,Yageo,R23,499 kΩ 1 % thick film resistor
+2,ERA-2AEB4992X,Panasonic,R25/26,49.9 kΩ 0.1 % 25 ppm thin film resistor
+3,RC0402FR-0710RL,Yageo,R27/34/44,10 Ω 1 % thick film resistor
+1,RC0402FR-0741K2L,Yageo,R28,41.2 kΩ 1 % thick film resistor
+2,RC0402FR-07442KL,Yageo,R30/35,442 kΩ 1 % thick film resistor
+1,CR0402-FX-4022GLF,Bourns,R31,40.2 kΩ 1 % thick film resistor
+1,RC0402FR-0766K5L,Yageo,R32,66.5 kΩ 1 % thick film resistor
+1,WSL1206R0200FEA,Vishay Dale,R33,20 mΩ 1 % 0.5 W metal-strip current-sense resistor
+1,RC0402FR-07140KL,Yageo,R38,140 kΩ 1 % thick film resistor
+2,RC0402FR-07619KL,Yageo,R40/41,619 kΩ 1 % thick film resistor
+1,RC0402FR-0720KL,Yageo,R42,20 kΩ 1 % thick film resistor
+1,WSL1206R0500FEA,Vishay Dale,R43,50 mΩ 1 % 0.5 W metal-strip current-sense resistor
+1,CR2512-FX-1002ELF,Bourns,R45,10 kΩ 1 W thick film resistor
+4,RC0402FR-074R7L,Yageo,R47/48/51/52,4.7 Ω 1 % thick film resistor
+1,WSL2512R0200FEA,Vishay Dale,R55,20 mΩ 1 % 1 W metal-strip current-sense resistor
+4,RC0402FR-071KL,Yageo,R56/59/112/113,1 kΩ 1 % thick film resistor
+2,RC0402FR-079K1L,Yageo,R57/58,9.1 kΩ 1 % thick film resistor
+1,CRCW251247R0FKEG,Vishay Dale,R61,47 Ω 1 W thick film resistor
+2,CR0402-FX-47R0GLF,Bourns,R65/66,47 Ω 1 % thick film resistor
+10,ERA-2VEB1001X,Panasonic,R71/72/74/75/76/77/80/81/82/83,1 kΩ 0.1 % 25 ppm thin film resistor
+1,ERA-2AEB1050X,Panasonic,R73,105 Ω 0.1 % 25 ppm thin film resistor
+1,ERA-2AEB5111X,Panasonic,R86,5.11 kΩ 0.1 % 25 ppm thin film resistor
+1,ERA-2VEB1002X,Panasonic,R87,10 kΩ 0.1 % 25 ppm thin film resistor
+2,RC0402FR-0760K4L,Yageo,R88/93,60.4 kΩ 1 % thick film resistor
+1,RC0402FR-0733RL,Yageo,R99,33 Ω 1 % thick film resistor
+1,RC0402FR-0722RL,Yageo,R105,22 Ω 1 % thick film resistor
+1,RC0402JR-070RL,Yageo,R108,0 Ω jumper
+7,PTS645SK43SMTR92 LFS,C&K,SW1/2/3/4/5/6/7,"6x6 mm tactile switch, 4.3 mm"
+1,BQ24075RGTR,Texas Instruments,U1,1.5 A Li-ion charger with power path
+1,BQ27441DRZT-G1A,Texas Instruments,U2,Impedance-Track fuel gauge
+1,TPS63001DRCR,Texas Instruments,U3,3.3 V 1.2 A buck-boost converter
+1,TPS65131RGET,Texas Instruments,U4,Dual output ±15 V boost/inverter
+1,LT3045EMSE#PBF,Analog Devices,U5,500 mA ultra-low-noise positive LDO
+1,LT3094EMSE#PBF,Analog Devices,U6,500 mA ultra-low-noise negative LDO
+1,LP5907MFX-3.3/NOPB,Texas Instruments,U7,300 mA low-noise LDO 3.3 V
+2,LT3757EMSE#PBF,Analog Devices,U8/9,"Boost/flyback controller, 2.9–40 V in"
+2,UCC27714D,Texas Instruments,U10/11,"600 V half-bridge gate driver, 4 A"
+1,INA241A2QDGKRQ1,Texas Instruments,U12,"INA241A2 (auto Q-grade, VSSOP-8) - VERIFY gain suffix vs scaling"
+2,TLV3501AIDBVR,Texas Instruments,U13/14,4.5 ns rail-to-rail comparator
+1,OPA1612AIDR,Texas Instruments,U15,Dual 1.1 nV/√Hz audio op amp
+2,THS4551IRGTR,Texas Instruments,U16/17,Precision fully-differential ADC driver
+1,OPA1656IDR,Texas Instruments,U18,Dual FET-input op amp (VOCM buffer)
+2,ADS127L01IPBSR,Texas Instruments,U19/20,24-bit 512 kSPS wideband delta-sigma ADC
+1,REF5025ID,Texas Instruments,U21,"2.5 V precision reference, 3 ppm/°C"
+1,STM32H743ZIT6,STMicroelectronics,U22,"Cortex-M7 480 MHz MCU, 2 MB flash, 1 MB RAM"
+1,LSM6DSO32TR,STMicroelectronics,U23,"LSM6DSO32 6-axis IMU (LGA-14, drop-in for LSM6DSM; firmware driver + +/-32g)"
+1,TPA6132A2RTER,Texas Instruments,U24,Cap-free stereo headphone amp
+1,PAM8302AADCR,Diodes Inc.,U25,2.5 W class-D mono speaker amp
+1,BM83SM1-00AA,Microchip,U26,"Bluetooth 5.0 dual-mode audio module, PCB antenna, shielded"
+1,MAX-M10S-00B,u-blox,U27,GNSS receiver module
+1,SXT3248FA48-16.384M,Suntsu Electronics,Y1,"16.384 MHz crystal, CL 8 pF, ±10 ppm"
+1,ABS07-32.768KHZ-7-T,Abracon,Y2,"32.768 kHz crystal, CL 7 pF"

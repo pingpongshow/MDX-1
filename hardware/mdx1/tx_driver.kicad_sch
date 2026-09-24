@@ -937,172 +937,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:D_Schottky"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "D_Schottky"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Schottky diode"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "diode Schottky"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "D_Schottky_0_1"
-				(polyline
-					(pts
-						(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy -1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "D_Schottky_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:R"
 			(pin_numbers
 				(hide yes)
@@ -1233,6 +1067,344 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Diode:BAT54SW"
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D"
+				(at 0.635 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "BAT54SW"
+				(at -6.35 3.175 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
+				(at 1.905 3.175 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/BAT54W_SER.pdf"
+				(at -3.048 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "dual schottky diode"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SOT?323*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "BAT54SW_0_1"
+				(polyline
+					(pts
+						(xy -4.445 1.27) (xy -4.445 -1.27) (xy -2.54 0) (xy -4.445 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.81 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.175 -1.27) (xy -3.175 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 1.27) (xy -1.905 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy -3.175 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy -2.54 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 1.27) (xy -1.905 1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy 1.905 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 3.81 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 1.27) (xy 1.905 -1.27) (xy 3.81 0) (xy 1.905 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.175 -1.27) (xy 3.175 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 1.27) (xy 4.445 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 -1.27) (xy 3.175 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 -1.27) (xy 3.81 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.445 1.27) (xy 4.445 1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "BAT54SW_1_1"
+				(pin passive line
+					(at -7.62 0 0)
+					(length 3.81)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 3.81)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 5.08)
+					(name "COM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2556,12 +2728,20 @@
 		(uuid "0672b9d8-fb6f-4ca5-8e7a-992699026869")
 	)
 	(no_connect
+		(at 344.17 339.09)
+		(uuid "110d7eaf-8707-4603-aa65-3bc2ef5e1f86")
+	)
+	(no_connect
 		(at 52.07 92.71)
 		(uuid "3f271a8e-d301-4d93-afe7-db9b84443741")
 	)
 	(no_connect
 		(at 52.07 185.42)
 		(uuid "4b537856-1f14-4e03-88a4-5c81ccc566d6")
+	)
+	(no_connect
+		(at 344.17 316.23)
+		(uuid "7e6ccc04-f64c-4a7e-95ec-67c9a113615f")
 	)
 	(no_connect
 		(at 52.07 187.96)
@@ -2975,16 +3155,6 @@
 	)
 	(wire
 		(pts
-			(xy 293.37 325.12) (xy 290.83 325.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5df3ba43-4797-4a61-bd5f-fc6fd6d57964")
-	)
-	(wire
-		(pts
 			(xy 360.68 118.11) (xy 358.14 118.11)
 		)
 		(stroke
@@ -3085,6 +3255,16 @@
 	)
 	(wire
 		(pts
+			(xy 326.39 339.09) (xy 328.93 339.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "751a3281-5a2b-4abb-a2e3-205309f53f85")
+	)
+	(wire
+		(pts
 			(xy 233.68 260.35) (xy 233.68 262.89)
 		)
 		(stroke
@@ -3092,6 +3272,16 @@
 			(type default)
 		)
 		(uuid "755af906-19ac-49aa-83f9-cc7ee6b50608")
+	)
+	(wire
+		(pts
+			(xy 336.55 344.17) (xy 336.55 347.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "755d3953-2ac9-4116-8c94-6d533c58fb8c")
 	)
 	(wire
 		(pts
@@ -3235,16 +3425,6 @@
 	)
 	(wire
 		(pts
-			(xy 300.99 325.12) (xy 303.53 325.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90fc8fec-b6a1-4dab-9c0c-b1ca709e3cf2")
-	)
-	(wire
-		(pts
 			(xy 231.14 350.52) (xy 231.14 353.06)
 		)
 		(stroke
@@ -3315,16 +3495,6 @@
 	)
 	(wire
 		(pts
-			(xy 300.99 317.5) (xy 303.53 317.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a72eba38-ca78-4d10-b2bc-73df801db5f3")
-	)
-	(wire
-		(pts
 			(xy 300.99 302.26) (xy 303.53 302.26)
 		)
 		(stroke
@@ -3382,6 +3552,16 @@
 			(type default)
 		)
 		(uuid "b9d1953d-7d7a-4344-bd54-5154596c45f7")
+	)
+	(wire
+		(pts
+			(xy 336.55 321.31) (xy 336.55 323.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb5cc034-8a66-401b-b486-9a191c29017a")
 	)
 	(wire
 		(pts
@@ -3512,6 +3692,16 @@
 			(type default)
 		)
 		(uuid "d9020ade-11fc-4fa5-b0e2-e73c89a02b9c")
+	)
+	(wire
+		(pts
+			(xy 325.12 316.23) (xy 328.93 316.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d947208f-5014-4eac-9235-bfd4792d640f")
 	)
 	(wire
 		(pts
@@ -3655,16 +3845,6 @@
 	)
 	(wire
 		(pts
-			(xy 293.37 317.5) (xy 290.83 317.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f75b803a-2ed7-4613-9500-0a6f247cd237")
-	)
-	(wire
-		(pts
 			(xy 293.37 302.26) (xy 290.83 302.26)
 		)
 		(stroke
@@ -3753,6 +3933,16 @@
 		)
 		(uuid "2ac31a70-c9e3-4f24-b125-983bf5d62856")
 	)
+	(label "OC_LO"
+		(at 326.39 339.09 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2c02010f-d96f-4033-822c-426b1b467edc")
+	)
 	(label "SW_B"
 		(at 193.04 180.34 270)
 		(effects
@@ -3792,6 +3982,16 @@
 			(justify right bottom)
 		)
 		(uuid "3a620c47-fe59-48c0-8005-58fa19d809dc")
+	)
+	(label "OC_HI"
+		(at 325.12 316.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3b07cf1e-76d7-41ac-b127-2543bde342fa")
 	)
 	(label "OC_THR_L"
 		(at 303.53 302.26 0)
@@ -4073,16 +4273,6 @@
 		)
 		(uuid "c38a55bc-61a8-4f69-a6f3-cb8405d24dec")
 	)
-	(label "OC_LO"
-		(at 290.83 325.12 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "dc5624dd-e056-45e9-85f8-2c6ece83abcb")
-	)
 	(label "SW_B"
 		(at 121.92 193.04 0)
 		(effects
@@ -4133,16 +4323,6 @@
 		)
 		(uuid "f175bc0d-d4af-4609-8fc6-43977661c6f9")
 	)
-	(label "OC_HI"
-		(at 290.83 317.5 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "f1978c89-3e55-42f8-93d9-57fba147328a")
-	)
 	(label "OC_THR_H"
 		(at 223.52 304.8 180)
 		(effects
@@ -4183,6 +4363,29 @@
 		)
 		(uuid "f93a000c-b430-479f-bd1e-623416fcc2f0")
 	)
+	(global_label "TX_FAULT"
+		(shape bidirectional)
+		(at 336.55 323.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "01e32b2a-c8c5-4ac7-9fcc-517df3194cb8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 336.55 323.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
 	(global_label "DRV_EN"
 		(shape bidirectional)
 		(at 46.99 82.55 180)
@@ -4219,29 +4422,6 @@
 		(uuid "0a7c0fc1-131b-4f34-8690-91f6e5547ff0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 121.92 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "TX_FAULT"
-		(shape bidirectional)
-		(at 303.53 325.12 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "13a8316f-00c9-4cf1-8ae9-545a11cb7d13")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 303.53 325.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4357,29 +4537,6 @@
 		(uuid "58ef02f9-e958-4cc8-bb6a-785362026f64")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 121.92 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "TX_FAULT"
-		(shape bidirectional)
-		(at 303.53 317.5 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "5b8bb5f4-96c4-4689-85e2-7cdb0387f031")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 303.53 317.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4758,6 +4915,29 @@
 			)
 		)
 	)
+	(global_label "TX_FAULT"
+		(shape bidirectional)
+		(at 336.55 347.98 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fb42dfd2-3c9a-463f-aeae-ecc1accaf92c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 336.55 347.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
 	(global_label "COIL_TX-"
 		(shape bidirectional)
 		(at 370.84 72.39 0)
@@ -4932,86 +5112,6 @@
 			(project "mdx1"
 				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/f86d4cac-e636-4f52-b0ae-c7021c4b49f8"
 					(reference "C47")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 297.18 325.12 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0c7fb8c7-4876-4ee9-b7e7-220d69c3b77a")
-		(property "Reference" "D9"
-			(at 299.68 323.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BAT54WS"
-			(at 299.68 326.52 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SOD-323"
-			(at 297.18 325.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 297.18 325.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 297.18 325.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e62de0cb-8bfa-43e6-a024-1d9d66992a00")
-		)
-		(pin "2"
-			(uuid "7e613f27-7afe-4d87-af79-ebc786d006b3")
-		)
-		(instances
-			(project "mdx1"
-				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/f86d4cac-e636-4f52-b0ae-c7021c4b49f8"
-					(reference "D9")
 					(unit 1)
 				)
 			)
@@ -6950,86 +7050,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 297.18 317.5 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "440a19f4-5be2-4ea2-bf43-4344e5fb416e")
-		(property "Reference" "D8"
-			(at 299.68 316.3 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BAT54WS"
-			(at 299.68 318.9 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SOD-323"
-			(at 297.18 317.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 297.18 317.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 297.18 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a63008cb-ec57-42b0-98a3-8a3525525768")
-		)
-		(pin "2"
-			(uuid "ccd21c7a-2ea9-4e79-914a-aaa686d094f3")
-		)
-		(instances
-			(project "mdx1"
-				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/f86d4cac-e636-4f52-b0ae-c7021c4b49f8"
-					(reference "D8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "MDX_PWR:GND")
 		(at 231.14 353.06 0)
 		(unit 1)
@@ -7408,7 +7428,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "INA241A2 (20 V/V)"
+		(property "Value" "INA241A2QDGKRQ1"
 			(at 231.14 241.11 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10364,6 +10384,90 @@
 		)
 	)
 	(symbol
+		(lib_id "Diode:BAT54SW")
+		(at 336.55 316.23 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "be81dc40-b08b-48c4-a6f4-3e2276598cd0")
+		(property "Reference" "D8"
+			(at 336.55 309.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NSVBAT54SWT1G"
+			(at 336.55 312.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
+			(at 338.455 313.055 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/BAT54W_SER.pdf"
+			(at 333.502 316.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"
+			(at 336.55 316.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "53d0a78e-47a4-4a05-bcf8-f529fa33dc5d")
+		)
+		(pin "1"
+			(uuid "c32d275b-058e-4e7f-8eed-f7b7edac48ff")
+		)
+		(pin "3"
+			(uuid "07adccb8-0203-41e6-948d-02b0966dfc38")
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/f86d4cac-e636-4f52-b0ae-c7021c4b49f8"
+					(reference "D8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 115.57 101.6 90)
 		(unit 1)
@@ -10744,6 +10848,90 @@
 			(project "mdx1"
 				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/f86d4cac-e636-4f52-b0ae-c7021c4b49f8"
 					(reference "R49")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Diode:BAT54SW")
+		(at 336.55 339.09 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d4f70d42-8bd2-4721-abab-b7c3937f640d")
+		(property "Reference" "D9"
+			(at 336.55 332.74 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NSVBAT54SWT1G"
+			(at 336.55 335.28 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
+			(at 338.455 335.915 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/BAT54W_SER.pdf"
+			(at 333.502 339.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"
+			(at 336.55 339.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b207a3c2-81c7-43ce-8e59-c02525d96709")
+		)
+		(pin "1"
+			(uuid "4151bcc9-e1d8-42f3-bf9a-142838b0d17b")
+		)
+		(pin "3"
+			(uuid "0b9990d7-9a90-42f9-9035-5756aa464991")
+		)
+		(instances
+			(project "mdx1"
+				(path "/0afcd34a-d204-4875-aae8-4ddd790eda23/f86d4cac-e636-4f52-b0ae-c7021c4b49f8"
+					(reference "D9")
 					(unit 1)
 				)
 			)
