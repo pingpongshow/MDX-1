@@ -13,9 +13,9 @@ static DMA_HandleTypeDef  hdma_tim1_up, hdma_sai_b, hdma_dac2;
 static SAI_HandleTypeDef  hsai_b, hsai_a;
 static DAC_HandleTypeDef  hdac;
 static ADC_HandleTypeDef  hadc1;
-static SPI_HandleTypeDef  hspi4;
-static I2C_HandleTypeDef  hi2c1;
-static UART_HandleTypeDef huart4, huart1;
+static SPI_HandleTypeDef  hspi4, hspi2;
+static I2C_HandleTypeDef  hi2c1, hi2c4;
+static UART_HandleTypeDef huart4, huart1, huart3, huart5;
 static SD_HandleTypeDef   hsd1;
 
 /* ------------------------------------------------------------------ ADC ring (SAI1_B TDM) */
@@ -221,6 +221,58 @@ void hal_audio_start(audio_fill_cb cb, void *ctx)
 void hal_audio_route(int hp, int spk, int bt) { HAL_GPIO_WritePin(GPIOD, GPIO_PIN_3, hp ? GPIO_PIN_SET : GPIO_PIN_RESET); HAL_GPIO_WritePin(GPIOD, GPIO_PIN_1, spk ? GPIO_PIN_SET : GPIO_PIN_RESET); (void)bt; }
 int hal_headphone_present(void) { return HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_6) == GPIO_PIN_SET; }
 
+/* ---- optional low-latency wireless audio (nRF52840 daughterboard on J14) ------------
+ * Control link = USART3 (PD8/PD9); NRF_RESET = PG0 (open-drain), NRF_STATUS = PG1 (input).
+ * The nRF receives the shared I2S stream (SAI1_A: PE4/PE5/PE6) and transmits it to a puck.
+ * The command bytes here are PLACEHOLDERS - match them to your nRF puck-link firmware. */
+static int s_ll_enabled = 0, s_ll_present = -1;
+static void ll_tx(uint8_t cmd) { HAL_UART_Transmit(&huart3, &cmd, 1, 5); }
+int hal_ll_audio_present(void)
+{
+    if (s_ll_present < 0) {                                  /* one-shot probe, result cached */
+        GPIOG->BSRR = GPIO_PIN_0; HAL_Delay(5);             /* release nRF reset */
+        uint8_t rx = 0; ll_tx(0xA0 /* PING */);
+        s_ll_present = (HAL_UART_Receive(&huart3, &rx, 1, 20) == HAL_OK) ? 1 : 0;
+    }
+    return s_ll_present;
+}
+void hal_ll_audio_enable(int on)
+{
+    if (on == s_ll_enabled) return;                          /* only act on a change */
+    s_ll_enabled = on; ll_tx(on ? 0xA1 /* STREAM ON */ : 0xA2 /* STREAM OFF */);
+}
+void hal_ll_audio_pair(void) { ll_tx(0xA3 /* PAIR */); }
+int  hal_ll_audio_linked(void) { return HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_1) == GPIO_PIN_SET; }
+
+/* ---- expansion header (I2C4 / SPI2 / UART5 / GPIO PE13,PA15) ---- */
+void hal_exp_spi_cs(int level) { HAL_GPIO_WritePin(GPIOG, GPIO_PIN_8, level ? GPIO_PIN_SET : GPIO_PIN_RESET); }
+int hal_exp_spi(const uint8_t *tx, uint8_t *rx, int n)
+{
+    if (tx && rx) return HAL_SPI_TransmitReceive(&hspi2, (uint8_t *)tx, rx, n, 50) == HAL_OK;
+    if (tx)       return HAL_SPI_Transmit(&hspi2, (uint8_t *)tx, n, 50) == HAL_OK;
+    if (rx)       return HAL_SPI_Receive(&hspi2, rx, n, 50) == HAL_OK;
+    return 0;
+}
+int hal_exp_i2c(uint8_t addr7, const uint8_t *wr, int wn, uint8_t *rd, int rn)
+{
+    if (wn > 0 && HAL_I2C_Master_Transmit(&hi2c4, addr7 << 1, (uint8_t *)wr, wn, 50) != HAL_OK) return 0;
+    if (rn > 0 && HAL_I2C_Master_Receive(&hi2c4, addr7 << 1, rd, rn, 50) != HAL_OK) return 0;
+    return 1;
+}
+int hal_exp_uart_write(const uint8_t *b, int n) { return HAL_UART_Transmit(&huart5, (uint8_t *)b, n, 50) == HAL_OK ? n : 0; }
+int hal_exp_uart_read(uint8_t *b, int max) { int i = 0; while (i < max && HAL_UART_Receive(&huart5, b + i, 1, 0) == HAL_OK) i++; return i; }
+void hal_exp_gpio_set(int idx, int level)
+{
+    GPIO_InitTypeDef g = {0}; g.Mode = GPIO_MODE_OUTPUT_PP; g.Speed = GPIO_SPEED_FREQ_LOW;
+    if (idx == 0) { g.Pin = GPIO_PIN_13; HAL_GPIO_Init(GPIOE, &g); HAL_GPIO_WritePin(GPIOE, GPIO_PIN_13, level ? GPIO_PIN_SET : GPIO_PIN_RESET); }
+    else          { g.Pin = GPIO_PIN_15; HAL_GPIO_Init(GPIOA, &g); HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, level ? GPIO_PIN_SET : GPIO_PIN_RESET); }
+}
+int hal_exp_gpio_get(int idx)
+{
+    return idx == 0 ? (HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_13) == GPIO_PIN_SET)
+                    : (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_15) == GPIO_PIN_SET);
+}
+
 /* ------------------------------------------------------------------ I2C sensors */
 static int i2c_rd(uint8_t addr, uint8_t reg, uint8_t *buf, int n) { return HAL_I2C_Mem_Read(&hi2c1, addr << 1, reg, 1, buf, n, 5) == HAL_OK; }
 static int i2c_wr(uint8_t addr, uint8_t reg, uint8_t v) { return HAL_I2C_Mem_Write(&hi2c1, addr << 1, reg, 1, &v, 1, 5) == HAL_OK; }
@@ -367,17 +419,22 @@ static void gpio_init(void)
     GPIO_InitTypeDef g = {0};
     g.Mode = GPIO_MODE_OUTPUT_PP; g.Speed = GPIO_SPEED_FREQ_LOW;
     g.Pin = GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6; HAL_GPIO_Init(GPIOG, &g);            /* DRV_EN HV_EN VTX_EN HV_BLEED ANA_EN */
+    g.Pin = GPIO_PIN_8; HAL_GPIO_Init(GPIOG, &g); GPIOG->BSRR = GPIO_PIN_8;                                        /* EXP SPI2 chip-select (idle high) */
     g.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3; HAL_GPIO_Init(GPIOF, &g);                          /* ADC straps: FILTER 00, OSR 00 */
     g.Pin = GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_14 | GPIO_PIN_1 | GPIO_PIN_3 | GPIO_PIN_5; HAL_GPIO_Init(GPIOD, &g);   /* ADC START RESET, DISP, SPK_SD, HP_EN, GNSS_RST */
     g.Pin = GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_0 | GPIO_PIN_1; HAL_GPIO_Init(GPIOB, &g);                        /* DISP_CS EXTCOM LEDs */
     g.Pin = GPIO_PIN_3 | GPIO_PIN_7; HAL_GPIO_Init(GPIOE, &g);                                                    /* BT_EN BT_RST */
     g.Mode = GPIO_MODE_OUTPUT_OD; g.Pin = GPIO_PIN_5; HAL_GPIO_Init(GPIOB, &g); GPIOB->BSRR = GPIO_PIN_5;           /* 1-Wire */
+    g.Pull = GPIO_PULLUP; g.Pin = GPIO_PIN_0; HAL_GPIO_Init(GPIOG, &g); GPIOG->BSRR = GPIO_PIN_0; g.Pull = GPIO_NOPULL;  /* NRF_RESET (OD, released high) */
     g.Mode = GPIO_MODE_INPUT; g.Pull = GPIO_PULLUP;
     g.Pin = GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15; HAL_GPIO_Init(GPIOG, &g);   /* keys: MENU UP DOWN LEFT RIGHT PINPOINT; PG15 = UI_DET */
     g.Pin = GPIO_PIN_13; HAL_GPIO_Init(GPIOC, &g);                                                                /* POWER (WKUP4) */
     g.Pin = GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_10; HAL_GPIO_Init(GPIOF, &g);                                      /* CHG PGOOD BAT_INT */
     g.Pin = GPIO_PIN_6 | GPIO_PIN_7; HAL_GPIO_Init(GPIOD, &g);                                                    /* HP_DET SD_DET */
-    g.Pull = GPIO_PULLDOWN; g.Pin = GPIO_PIN_1; HAL_GPIO_Init(GPIOE, &g); g.Pull = GPIO_PULLUP;                   /* BT_WAKE: BM83 P0_0/UART_TX_IND, active high */
+    g.Pull = GPIO_PULLDOWN; g.Pin = GPIO_PIN_1; HAL_GPIO_Init(GPIOE, &g);                                          /* BT_WAKE: BM83 P0_0/UART_TX_IND, active high */
+    g.Pin = GPIO_PIN_1; HAL_GPIO_Init(GPIOG, &g); g.Pull = GPIO_PULLUP;                                            /* NRF_STATUS (PG1, low = no puck) */
+    g.Pin = GPIO_PIN_13; HAL_GPIO_Init(GPIOE, &g);                                                                 /* EXP_GPIO1 (PE13) default input */
+    g.Pin = GPIO_PIN_15; HAL_GPIO_Init(GPIOA, &g);                                                                 /* EXP_GPIO2 (PA15) default input */
     /* alternate functions */
     g.Mode = GPIO_MODE_AF_PP; g.Pull = GPIO_NOPULL; g.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     g.Alternate = GPIO_AF1_TIM1; g.Pin = GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_15; HAL_GPIO_Init(GPIOE, &g);
@@ -388,6 +445,10 @@ static void gpio_init(void)
     g.Alternate = GPIO_AF4_I2C1; g.Mode = GPIO_MODE_AF_OD; g.Pin = GPIO_PIN_8 | GPIO_PIN_9; HAL_GPIO_Init(GPIOB, &g);
     g.Mode = GPIO_MODE_AF_PP; g.Alternate = GPIO_AF8_UART4; g.Pin = GPIO_PIN_10 | GPIO_PIN_11; HAL_GPIO_Init(GPIOC, &g);
     g.Alternate = GPIO_AF7_USART1; g.Pin = GPIO_PIN_9 | GPIO_PIN_10; HAL_GPIO_Init(GPIOA, &g);
+    g.Alternate = GPIO_AF7_USART3; g.Pin = GPIO_PIN_8 | GPIO_PIN_9; HAL_GPIO_Init(GPIOD, &g);                       /* USART3 TX/RX -> nRF LL-audio module (J14) */
+    g.Alternate = GPIO_AF5_SPI2; g.Pin = GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15; HAL_GPIO_Init(GPIOB, &g);         /* EXP SPI2 SCK/MISO/MOSI */
+    g.Alternate = GPIO_AF14_UART5; g.Pin = GPIO_PIN_6 | GPIO_PIN_12; HAL_GPIO_Init(GPIOB, &g);                      /* EXP UART5 TX/RX */
+    g.Mode = GPIO_MODE_AF_OD; g.Alternate = GPIO_AF4_I2C4; g.Pin = GPIO_PIN_14 | GPIO_PIN_15; HAL_GPIO_Init(GPIOF, &g); g.Mode = GPIO_MODE_AF_PP;   /* EXP I2C4 SCL/SDA */
     g.Alternate = GPIO_AF2_TIM4; g.Pin = GPIO_PIN_15; HAL_GPIO_Init(GPIOD, &g);
     g.Mode = GPIO_MODE_ANALOG; g.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5; HAL_GPIO_Init(GPIOA, &g);
 }
@@ -432,7 +493,7 @@ static void sai_adc_init(void)
 
 static void misc_init(void)
 {
-    __HAL_RCC_DAC12_CLK_ENABLE(); __HAL_RCC_TIM6_CLK_ENABLE(); __HAL_RCC_TIM4_CLK_ENABLE(); __HAL_RCC_ADC12_CLK_ENABLE(); __HAL_RCC_SPI4_CLK_ENABLE(); __HAL_RCC_I2C1_CLK_ENABLE(); __HAL_RCC_UART4_CLK_ENABLE(); __HAL_RCC_USART1_CLK_ENABLE();
+    __HAL_RCC_DAC12_CLK_ENABLE(); __HAL_RCC_TIM6_CLK_ENABLE(); __HAL_RCC_TIM4_CLK_ENABLE(); __HAL_RCC_ADC12_CLK_ENABLE(); __HAL_RCC_SPI4_CLK_ENABLE(); __HAL_RCC_I2C1_CLK_ENABLE(); __HAL_RCC_UART4_CLK_ENABLE(); __HAL_RCC_USART1_CLK_ENABLE(); __HAL_RCC_USART3_CLK_ENABLE(); __HAL_RCC_I2C4_CLK_ENABLE(); __HAL_RCC_SPI2_CLK_ENABLE(); __HAL_RCC_UART5_CLK_ENABLE();   /* expansion header */
     hdac.Instance = DAC1; HAL_DAC_Init(&hdac);
     DAC_ChannelConfTypeDef dc = {0}; dc.DAC_Trigger = DAC_TRIGGER_NONE; dc.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE; HAL_DAC_ConfigChannel(&hdac, &dc, DAC_CHANNEL_1); HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
     dc.DAC_Trigger = DAC_TRIGGER_T6_TRGO; HAL_DAC_ConfigChannel(&hdac, &dc, DAC_CHANNEL_2);
@@ -447,8 +508,13 @@ static void misc_init(void)
     hspi4.Instance = SPI4; hspi4.Init.Mode = SPI_MODE_MASTER; hspi4.Init.Direction = SPI_DIRECTION_2LINES_TXONLY; hspi4.Init.DataSize = SPI_DATASIZE_8BIT; hspi4.Init.CLKPolarity = SPI_POLARITY_LOW; hspi4.Init.CLKPhase = SPI_PHASE_1EDGE; hspi4.Init.NSS = SPI_NSS_SOFT; hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64; hspi4.Init.FirstBit = SPI_FIRSTBIT_LSB;   /* Sharp LCD: ~1.8 MHz, LSB first */
     HAL_SPI_Init(&hspi4);
     hi2c1.Instance = I2C1; hi2c1.Init.Timing = 0x10707DBC; hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT; HAL_I2C_Init(&hi2c1);
+    /* ---- expansion header peripherals (SPI2 / UART5 / I2C4) ---- */
+    hspi2.Instance = SPI2; hspi2.Init.Mode = SPI_MODE_MASTER; hspi2.Init.Direction = SPI_DIRECTION_2LINES; hspi2.Init.DataSize = SPI_DATASIZE_8BIT; hspi2.Init.CLKPolarity = SPI_POLARITY_LOW; hspi2.Init.CLKPhase = SPI_PHASE_1EDGE; hspi2.Init.NSS = SPI_NSS_SOFT; hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64; hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB; HAL_SPI_Init(&hspi2);   /* mode 0, MSB, CS on PG8 */
+    huart5.Instance = UART5; huart5.Init.BaudRate = 115200; huart5.Init.WordLength = UART_WORDLENGTH_8B; huart5.Init.StopBits = UART_STOPBITS_1; huart5.Init.Parity = UART_PARITY_NONE; huart5.Init.Mode = UART_MODE_TX_RX; HAL_UART_Init(&huart5);
+    hi2c4.Instance = I2C4; hi2c4.Init.Timing = 0x10707DBC; hi2c4.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT; HAL_I2C_Init(&hi2c4);   /* verify Timing for the I2C4 kernel clock (D3PCLK1) */
     huart4.Instance = UART4; huart4.Init.BaudRate = 9600; huart4.Init.WordLength = UART_WORDLENGTH_8B; huart4.Init.StopBits = UART_STOPBITS_1; huart4.Init.Parity = UART_PARITY_NONE; huart4.Init.Mode = UART_MODE_TX_RX; HAL_UART_Init(&huart4);
     huart1.Instance = USART1; huart1.Init.BaudRate = 115200; huart1.Init.WordLength = UART_WORDLENGTH_8B; huart1.Init.StopBits = UART_STOPBITS_1; huart1.Init.Parity = UART_PARITY_NONE; huart1.Init.Mode = UART_MODE_TX_RX; HAL_UART_Init(&huart1);
+    huart3.Instance = USART3; huart3.Init.BaudRate = 115200; huart3.Init.WordLength = UART_WORDLENGTH_8B; huart3.Init.StopBits = UART_STOPBITS_1; huart3.Init.Parity = UART_PARITY_NONE; huart3.Init.Mode = UART_MODE_TX_RX; HAL_UART_Init(&huart3);   /* nRF LL-audio control link */
     bm83_init();                      /* power up the Bluetooth module and start BLE advertising */
     /* IMU LSM6DSO32 (WHO_AM_I 0x6C): 104 Hz, +-500 dps, +-4 g.
      * NB: FS_XL encoding differs from the LSM6DSM - on the DSO32, CTRL1_XL FS_XL 00 = +-4 g

@@ -30,9 +30,10 @@ static int g_units(const detector_t *d) { return d->set.units_in; }       static
 static int g_sauto(const detector_t *d) { return d->set.sens_auto; }      static void s_sauto(detector_t *d, int v) { d->set.sens_auto = (uint8_t)v; }
 static int g_anc(const detector_t *d) { return d->set.auto_nc_at_boot; }  static void s_anc(detector_t *d, int v) { d->set.auto_nc_at_boot = (uint8_t)v; }
 static int g_grunt(const detector_t *d) { return d->set.iron_grunt; }     static void s_grunt(detector_t *d, int v) { d->set.iron_grunt = (uint8_t)v; }
+static int g_lla(const detector_t *d) { return d->set.ll_audio; }          static void s_lla(detector_t *d, int v) { d->set.ll_audio = (uint8_t)v; hal_ll_audio_enable(v); }
 static int g_pin(const detector_t *d) { return d->set.link_pin; }          static void s_pin(detector_t *d, int v) { d->set.link_pin = (uint16_t)v; }
 static const char *const UNITS_L[] = {"cm", "inch"};
-enum { ACT_NONE = 0, ACT_NC, ACT_COIL, ACT_DIAG, ACT_LEARN, ACT_LOG, ACT_SAVE, ACT_DISC };
+enum { ACT_NONE = 0, ACT_NC, ACT_COIL, ACT_DIAG, ACT_LEARN, ACT_LOG, ACT_SAVE, ACT_DISC, ACT_LLPAIR };
 static const item_t MENU[] = {
     {"Program",        g_prog,  s_prog,  0, PROG_COUNT - 1, PROG_L, 0},
     {"Mode",           g_mode,  s_mode,  0, MODE_COUNT - 1, MODE_L, 0},
@@ -49,6 +50,8 @@ static const item_t MENU[] = {
     {"Threshold hum",  g_thr,   s_thr,   0, 10, 0, 0},
     {"Iron volume",    g_iron,  s_iron,  0, 10, 0, 0},
     {"Iron grunt",     g_grunt, s_grunt, 0, 1, OFFON, 0},
+    {"Low-latency audio", g_lla, s_lla,  0, 1, OFFON, 0},
+    {"Pair LL headphones", 0, 0, 0, 0, 0, ACT_LLPAIR},
     {"Noise cancel at start", g_anc, s_anc, 0, 1, OFFON, 0},
     {"Noise cancel",   0, 0, 0, 0, 0, ACT_NC},
     {"Coil wizard",    0, 0, 0, 0, 0, ACT_COIL},
@@ -337,6 +340,7 @@ static void menu_action(ui_t *u, detector_t *d, int act)
     case ACT_LEARN: u->screen = SCR_LEARN; break;
     case ACT_LOG: u->screen = SCR_LOG; break;
     case ACT_SAVE: d->set.crc = settings_crc(&d->set); hal_nvm_write(&d->set, sizeof(d->set)); break;
+    case ACT_LLPAIR: hal_ll_audio_pair(); break;
     }
 }
 

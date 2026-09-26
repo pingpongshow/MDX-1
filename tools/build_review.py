@@ -56,7 +56,7 @@ STRAPS = [
  ("MAX-M10S", "VIO_SEL", "open", "Open = 3.3 V I/O; GND = 1.8 V", "OK", "ok"),
  ("MAX-M10S", "SAFEBOOT_N / TIMEPULSE", "open / MCU input", "Shared through 1 kΩ; must not be low at start-up", "OK (PD0 is an input with no pull-down)", "ok"),
  ("MAX-M10S", "RESET_N, EXTINT, V_BCKP", "MCU GPIO, open, +3V3", "Active low ≥ 1 ms; leave EXTINT open; V_BCKP ≤ 3.6 V", "OK", "ok"),
- ("LSM6DSM", "CS, SDO/SA0", "+3V3; 0 Ω to GND", "CS = 1 enables I2C; SA0 = 0 → address 0x6A", "OK", "ok"),
+ ("LSM6DSO32", "CS, SDO/SA0", "+3V3; 0 Ω to GND", "CS = 1 enables I2C; SA0 = 0 → address 0x6A", "OK (drop-in for LSM6DSM; FS_XL encoding differs, handled in firmware)", "ok"),
  ("PAM8302A", "~SD", "MCU SPK_SD", "Low = shutdown", "OK (firmware drives high to enable)", "ok"),
  ("STM32H743", "BOOT0, PDR_ON, NRST, VCAP, VREF+", "10 kΩ down; VDD; 100 nF; 2 × 2.2 µF; VDDA", "Standard reference design", "OK", "ok"),
  ("Crystals", "HSE 16.384 MHz / LSE 32.768 kHz", "12 pF / 10 pF loads", "CL 8 pF and 7 pF crystals: C = 2·(CL − 2 pF stray)", "LSE caps changed 6.8 → 10 pF", "fixed"),
@@ -66,7 +66,7 @@ STRAPS = [
  ("LT3757 ×2", "VIN", "no local capacitor", "Bypass VIN close to the pin", "4.7 µF added at each VIN", "fixed"),
  ("USB-C", "D+ / D−", "no ESD protection", "USB 2.0 data lines exposed at the connector", "USBLC6-2SC6 ESD array added", "fixed"),
  ("Memory LCD LS027B7DH01", "VDD / VDDA", "was +3V3", "VDD 4.8 to 5.5 V; VIH 2.7 V min (3.3 V logic OK)", "Powered from +5VA through 10 Ω / 10 µF (+5V_LCD)", "fixed"),
- ("MAX-M10S", "RF_IN", "direct to the antenna", "Vendor matching network for the ground-plane size", "Series 0 Ω and shunt DNP pads added", "fixed"),
+ ("MAX-M10S", "RF_IN / VCC_RF", "external active antenna via u.FL", "DC-block into RF_IN; bias from VCC_RF via feed inductor; ESD at connector", "Chip antenna replaced by u.FL (J13) + bias-tee: L8 feed, C127 DC-block, C128 VCC_RF bypass, D17 ESD", "fixed"),
  ("HV bleed", "resistor", "4.7 kΩ 1 W (2.1 W peak)", "Pulse power for a 100 V bank", "10 kΩ 1 W, 1.4 s discharge", "fixed"),
  ("BQ27441-G1", "BAT", "no bypass", "0.1 µF at BAT recommended", "100 nF added", "fixed"),
  ("PAM8302A", "IN± coupling, VDD bypass", "1 µF, 100 nF", "0.1 to 0.22 µF input coupling; 1 µF at VDD", "220 nF and 1 µF", "fixed"),
@@ -144,7 +144,7 @@ footer{padding:36px 0 60px;color:var(--mute);font-size:.84rem}
 <nav class="toc"><div class="wrap"><a href="#straps">Strap review</a><a href="#pins">MCU pin map</a><a href="#cost">Cost estimate</a><a href="#bom">Full BOM</a><a href="#off">Off-board</a></div></nav>
 
 <section id="straps"><div class="wrap"><div class="secnum">1</div><h2>Datasheet review of configuration pins</h2>
-<p>Sources: TI datasheets for ADS127L01, TPS65131, TPS63001, TPS7A20, UCC27714, INA241A, TLV3501, OPA1612, THS4551, BQ24075, BQ27441-G1, TPA6132A2, REF5025; Analog Devices LT3045, LT3094, LT3757; Infineon BSC190N15NS3; Diodes PAM8302A (from your <span class="mono">docs/datasheets</span> folder); ST LSM6DSM and STM32H743 DS12110 rev 11; u-blox MAX-M10S; Sharp LS027B7DH01. Items marked <span class="v fixed">changed</span> were wrong or missing and are corrected in the current schematic; rows marked "Owner's call" are design decisions taken on the owner's instruction. ERC and the netlist were re-checked afterwards (ERC clean: 0 errors, 0 warnings).</p>
+<p>Sources: TI datasheets for ADS127L01, TPS65131, TPS63001, TPS7A20, UCC27714, INA241A, TLV3501, OPA1612, THS4551, BQ24075, BQ27441-G1, TPA6132A2, REF5025; Analog Devices LT3045, LT3094, LT3757; Infineon BSC190N15NS3; Diodes PAM8302A (from your <span class="mono">docs/datasheets</span> folder); ST LSM6DSO32 and STM32H743 DS12110 rev 11; u-blox MAX-M10S; Sharp LS027B7DH01. Items marked <span class="v fixed">changed</span> were wrong or missing and are corrected in the current schematic; rows marked "Owner's call" are design decisions taken on the owner's instruction. ERC and the netlist were re-checked afterwards (ERC clean: 0 errors, 0 warnings).</p>
 <div class="tablewrap"><table><thead><tr><th>Part</th><th>Pin / network</th><th>As designed (rev A1)</th><th>Datasheet rule</th><th>Action</th><th>Result</th></tr></thead><tbody>''' + strap_html + r'''</tbody></table></div>
 <div class="callout warn">Two of the corrections mattered functionally: the ADS127L01 straps selected SPI mode and frame-sync <em>master</em>, the opposite of what the rev A1 SAI interface needs, and the LT3045 SET resistor would have produced 10 V on the +5VA rail (the OPA1612 and THS4551 would have survived, the ADS127L01 reference path would not). Both are fixed. The rest were housekeeping: compensation capacitors, unused-pin terminations, capacitor values and can sizes.</div>
 </div></section>

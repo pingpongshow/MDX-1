@@ -76,6 +76,26 @@ void hal_audio_start(audio_fill_cb cb, void *ctx);
 void hal_audio_route(int headphone, int speaker, int bluetooth);
 int  hal_headphone_present(void);
 
+/* ---- optional low-latency wireless audio (nRF52840 daughterboard via J14) ----------
+ * The BM83 keeps the BLE app link and standard-BT audio; this is an *optional* add-on
+ * module that transmits the shared I2S stream to a matching receiver puck at low latency.
+ * All calls are safe no-ops when the daughterboard is absent. */
+int  hal_ll_audio_present(void);   /* daughterboard fitted / responding on the control link */
+void hal_ll_audio_enable(int on);  /* enable/disable the low-latency audio TX link            */
+void hal_ll_audio_pair(void);      /* begin pairing to a receiver puck                        */
+int  hal_ll_audio_linked(void);    /* 1 = a puck is currently connected (NRF_STATUS)          */
+
+/* ---- expansion header (generic I2C/SPI/UART/GPIO breakout for add-on boards) ----------
+ * I2C4 (PF14/PF15), SPI2 (PB13 SCK / PB14 MISO / PB15 MOSI, CS on PG8), UART5 (PB6/PB12),
+ * and two GPIO (idx 0 = PE13, 1 = PA15). Behind the HAL so add-on code stays portable. */
+int  hal_exp_i2c(uint8_t addr7, const uint8_t *wr, int wn, uint8_t *rd, int rn); /* write-then-read; 1 ok */
+int  hal_exp_spi(const uint8_t *tx, uint8_t *rx, int n);   /* full-duplex (tx/rx may be NULL); 1 ok        */
+void hal_exp_spi_cs(int level);                            /* drive the SPI chip-select (PG8), 0/1         */
+int  hal_exp_uart_write(const uint8_t *b, int n);          /* bytes written                                */
+int  hal_exp_uart_read(uint8_t *b, int max);               /* bytes read (0..max)                          */
+void hal_exp_gpio_set(int idx, int level);                 /* drives idx (0=PE13, 1=PA15) as an output     */
+int  hal_exp_gpio_get(int idx);                            /* reads idx                                    */
+
 /* ---- sensors / peripherals ------------------------------------------------------ */
 typedef struct { float gx, gy, gz; float ax, ay, az; } imu_sample_t;   /* rad/s, m/s^2 */
 int  hal_imu_read(imu_sample_t *s);

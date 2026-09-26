@@ -162,6 +162,19 @@ void hal_audio_start(audio_fill_cb cb, void *ctx) { g_cb = cb; g_ctx = ctx; }
 void sim_audio_pull(int16_t *buf, int n) { if (g_cb) g_cb(buf, n, g_ctx); }
 void hal_audio_route(int h, int s, int b) { (void)h; (void)s; (void)b; }
 int hal_headphone_present(void) { return 1; }
+/* optional low-latency audio daughterboard: absent in the simulator */
+int  hal_ll_audio_present(void) { return 0; }
+void hal_ll_audio_enable(int on) { (void)on; }
+void hal_ll_audio_pair(void) { }
+int  hal_ll_audio_linked(void) { return 0; }
+/* expansion header: no add-ons in the simulator */
+int  hal_exp_i2c(uint8_t a, const uint8_t *wr, int wn, uint8_t *rd, int rn) { (void)a; (void)wr; (void)wn; (void)rd; (void)rn; return 0; }
+int  hal_exp_spi(const uint8_t *tx, uint8_t *rx, int n) { (void)tx; if (rx) for (int i = 0; i < n; i++) rx[i] = 0; return 0; }
+void hal_exp_spi_cs(int level) { (void)level; }
+int  hal_exp_uart_write(const uint8_t *b, int n) { (void)b; return n; }
+int  hal_exp_uart_read(uint8_t *b, int max) { (void)b; (void)max; return 0; }
+void hal_exp_gpio_set(int idx, int level) { (void)idx; (void)level; }
+int  hal_exp_gpio_get(int idx) { (void)idx; return 0; }
 int hal_imu_read(imu_sample_t *s) { float v = sim_coil_speed(); s->gx = v / 1.2f; s->gy = 0; s->gz = 0; s->ax = 0; s->ay = 0; s->az = 9.81f; return 1; }
 int hal_gnss_read(gnss_fix_t *fix) { fix->valid = SIM.gnss_valid; fix->lat = SIM.lat; fix->lon = SIM.lon; fix->alt_m = 30; fix->hdop = 1.1f; fix->utc_s = 1789000000u + (uint32_t)SIM.t_s; fix->sats = 9; return 1; }
 float hal_battery_v(void) { return SIM.batt_v; }

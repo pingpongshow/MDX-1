@@ -2090,6 +2090,16 @@
    "-",
    0,
    0
+  ],
+  [
+   "GNSS",
+   1,
+   "Active GNSS antenna, L1 1575 MHz, u.FL or SMA, 3.0-3.6 V bias",
+   "-",
+   "-",
+   "active, u.FL",
+   18.0,
+   12.0
   ]
  ],
  "total1": 289.179,

@@ -53,7 +53,7 @@ Assemble and verify in this order. Do not proceed to the next stage until the cu
 
 ### Stage 3 — TX rail (VTX), low voltage first
 
-**Add:** **U8** (LT3757) + **L4** + **Q1** (SiR626) + **D4** (B560C) + VTX bulk caps (C31/C32/C33).
+**Add:** **U8** (LT3757) + **L4** + **Q1** (SiR680ADP) + **D4** (B560C) + VTX bulk caps (C31/C32/C33).
 
 **Verify:**
 - Enable VTX with the DAC set for the **lowest** rail first (recall VTX = 29.8 V at 0 V DAC, 7.9 V at 3.3 V DAC — so command a high DAC value to start low), then sweep up.
@@ -81,7 +81,7 @@ Do this in **two sub-steps** so you validate gate timing before any power device
 
 ### Stage 6 — Peripherals
 
-**Add:** **U23** (LSM6DSM IMU), **U24** (TPA6132 headphone amp), **U25** (PAM8302 speaker amp), **U26** (BM83 Bluetooth), **U27/U28** (MAX-M10S GNSS + antenna), the microSD (J6), and connect the UI board (LCD, keypad) over the FFC.
+**Add:** **U23** (LSM6DSO32 IMU), **U24** (TPA6132 headphone amp), **U25** (PAM8302 speaker amp), **U26** (BM83 Bluetooth), **U27** (MAX-M10S GNSS) + external active antenna via **J13** (u.FL), the microSD (J6), and connect the UI board (LCD, keypad) over the FFC.
 
 **Verify:** I²C IMU responds; audio out both paths; BLE advertises and the phone app connects; GNSS fix; microSD mounts; LCD draws and keypad reads (UI_DET detection).
 

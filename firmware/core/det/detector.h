@@ -31,6 +31,7 @@ typedef struct {
     uint8_t  auto_nc_at_boot;    /* run noise cancel automatically 1 s after power-up          */
     uint8_t  sens_auto;          /* 1 = threshold follows the noise floor (auto sensitivity)   */
     uint8_t  iron_grunt;         /* 1 = ferrous targets get a modulated low tone               */
+    uint8_t  ll_audio;           /* 1 = route wireless audio via the low-latency nRF puck (opt) */
     uint16_t link_pin;           /* phone-link pairing code 0..9999 (shown in the menu)        */
     uint8_t  accept[13];         /* 100-bit accept pattern over cond_id 0..99              */
     float    depth_cal;

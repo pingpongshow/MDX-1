@@ -30,7 +30,7 @@ void detector_default_settings(settings_t *s)
     s->sensitivity = 20; s->recovery = 5; s->tone_scheme = TONE_SCHEME_PITCH; s->volume = 7; s->threshold_vol = 2; s->iron_volume = 3;
     s->gb_mode = 0; s->salt_mode = 0; s->noise_M = MDX_M_DEFAULT; s->tx_level = 4;
     s->fe_limit_lo = 55; s->fe_limit_hi = 100; s->hybrid_ratio = 0; s->frontlight = 30; s->log_enable = 1; s->units_in = 0;
-    s->auto_nc_at_boot = 1; s->sens_auto = 0; s->iron_grunt = 1;
+    s->auto_nc_at_boot = 1; s->sens_auto = 0; s->iron_grunt = 1; s->ll_audio = 0;
     detector_set_accept(s, 0, 99, 1);
     s->depth_cal = 1.0f;
 }

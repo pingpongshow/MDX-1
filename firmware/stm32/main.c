@@ -50,6 +50,7 @@ int main(void)
             t_hk = now;
             detector_housekeeping(&det);
             hal_audio_route(hal_headphone_present(), !hal_headphone_present(), 1);
+            hal_ll_audio_enable(det.set.ll_audio && hal_ll_audio_present());   /* optional low-latency puck link */
             if (det.st.batt_v < 3.3f && !det.st.charging) { hal_tx_enable(0); hal_power_off(); }
         }
         if (ui.mark_find) { find_mark = 1; ui.mark_find = 0; }
