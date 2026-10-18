@@ -79,7 +79,13 @@ The core (`firmware/core/`) is target-independent C: DSP, detector logic, UI, ph
 
 ## License
 
-No license is set yet. Until a `LICENSE` file is added, all rights are reserved and this is published for reference only. Add a license before treating any part of this as reusable.
+Copyright © 2026 Stephen Packer.
+
+This project — hardware, search-coil design, firmware, apps and documentation — is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**. See [`LICENSE`](LICENSE) for the full text.
+
+In short, you are free to **share and adapt** the material for **non-commercial** purposes, as long as you give appropriate credit. **Commercial use is not permitted** without separate written permission from the copyright holder.
+
+> Note: CC licenses are not designed specifically for software. CC BY-NC 4.0 is applied here to express a single non-commercial intent across the whole project (hardware, firmware and docs together). For commercial licensing of any part, contact the author.
 
 ## Disclaimer
 
